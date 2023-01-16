@@ -17,7 +17,7 @@ export default function Home() {
       </Head>
       <main className={styles.main}>
         <Links />
-        Welcome to Victor's Dev a website built by Victor for Victor.
+        Welcome to Victors Dev a website built by Victor for Victor.
       </main>
     </>
   )
