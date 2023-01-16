@@ -1,0 +1,10 @@
+.links_container {
+  color: white;
+  font-size: 2em;
+  width: 100vw;
+  height: 10vh;
+  background: red;
+  display: flex;
+  justify-content: space-around;
+
+}

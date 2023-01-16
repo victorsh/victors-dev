@@ -1,11 +1,14 @@
 import Link from 'next/link'
+import styles from '../styles/Links.module.css'
 
 function Links() {
   return (
-    <ul>
-      <li><Link href='/'>Home</Link></li>
-      <li><Link href='/start'>Start</Link></li>
-      <li><Link href='/about'>About</Link></li>
-    </ul>
+    <div className={styles.links_container}>
+      <Link href='/'>Home</Link>
+      <Link href='/start'>Start</Link>
+      <Link href='/about'>About</Link>
+    </div>
   )
 }
+
+export default Links
