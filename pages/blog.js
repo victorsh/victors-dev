@@ -1,20 +1,18 @@
 import Header from '@/components/Header'
 import Links from '@/components/Links'
-import { DatePicker } from 'antd'
 import { Inter } from '@next/font/google'
 import styles from '@/styles/Home.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
-export default function Home() {
+export default function Blog() {
   return (
     <>
       <Header />
-      <div>
+      <main className={styles.main}>
         <Links />
-        <DatePicker />
         <div>Welcome to Victors Dev a website built by Victor for Victor.</div>
-      </div>
+      </main>
     </>
   )
 }

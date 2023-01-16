@@ -2,9 +2,27 @@
   color: white;
   font-size: 2em;
   width: 100vw;
-  height: 10vh;
+  height: 4vh;
   background: red;
   display: flex;
   justify-content: space-around;
+  align-items: center;
+}
 
+.links_wrapper {
+  width: 60vw;
+  display: flex;
+  justify-content: center;
+}
+
+.link {
+  color: #000;
+}
+
+.wallets {
+  width: 40vw;
+  height: 4vh;
+  display: flex;
+  justify-content: right;
+  align-items: center;
 }

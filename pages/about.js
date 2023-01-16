@@ -1,11 +1,13 @@
 import react from 'react'
 import Links from '@/components/Links'
+import Header from '@/components/Header'
 
 export default function About() {
   return (
     <div>
-      <title>About</title>
+      <Header />
       <Links />
+      <title>About</title>
     </div>
   )
 }

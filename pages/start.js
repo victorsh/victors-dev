@@ -1,5 +1,6 @@
 import { Canvas } from '@react-three/fiber'
 import Links from '@/components/Links'
+import Header from '@/components/Header'
 import css from '@/styles/Start.module.css'
 // Three Custom Componenets
 import Box from '@/components/three/Box'
@@ -13,6 +14,7 @@ import CustomText from '@/components/three/CustomText'
 export default function Start() {
   return (
     <div className={css.scene}>
+      <Header />
       <Links />
       <Canvas
         shadows

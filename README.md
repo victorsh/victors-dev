@@ -48,3 +48,5 @@ https://vercel.com/guides/nextjs-prisma-postgres
 
 ## React Three Fiber
 https://dev.to/hnicolus/how-to-use-threejs-in-react-nextjs-4120
+
+https://chainlist.org/chain/80001
