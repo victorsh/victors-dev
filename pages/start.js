@@ -5,6 +5,7 @@ import css from '@/styles/Start.module.css'
 // Three Custom Componenets
 import Box from '@/components/three/Box'
 import BoxTexture from '@/components/three/BoxTexture'
+import BoxAnim from '@/components/BoxAnim'
 // import Draggable from '@/components/three/Draggable'
 import Floor from '@/components/three/Floor'
 import LightBulb from '@/components/three/LightBulb'
@@ -29,6 +30,7 @@ export default function Start() {
         {/* <Draggable>
           <Box rotateX={3} rotateY={0.2} />
         </Draggable> */}
+        <BoxAnim position={[0, 2, 0]}/>
         <CustomText test="Hello Buddy"/>
         <Floor position={[0, -1, 0]} />
         <OrbitControls />
