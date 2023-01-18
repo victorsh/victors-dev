@@ -1,0 +1,45 @@
+.links_container {
+  color: white;
+  font-size: 2em;
+  width: 100vw;
+  height: 60px;
+  background: red;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  overflow: hidden;
+}
+
+.links_wrapper {
+  width: 60vw;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.title_text {
+  width: 50%;
+  height: 60px;
+  color: black;
+}
+
+.link {
+  color: #000;
+}
+
+.wallets {
+  width: 40vw;
+  height: 40px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+}
+
+.space {
+  margin-right: 2px;
+}
+
+.button {
+  color: black;
+  margin: 2px;
+}
