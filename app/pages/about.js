@@ -24,7 +24,7 @@ export default function About() {
   )
 }
 
-import prisma from '@/app/lib/prisma'
+import prisma from '../lib/prisma'
 
 export const getStaticProps = async () => {
   const feed = await prisma.post.findMany({
