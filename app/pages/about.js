@@ -11,12 +11,11 @@ export default function About() {
       <Box maxW="2xl" m="0 auto">
         <Heading as="h1">About Me</Heading>
         <Text>
-          Who am I? This a question we must all face from time to time. How can we define ourselves?
-          Is it our roles in society that determine who we are? Is it our past experiences? Where does
-          genetics fall into this picture?
-
-          It's really hard to define us as people. We are, as far as we know, the most intelligent beings
-          in the known universe. Knowing this, how does this define us?
+          {"Who am I? This a question we must all face from time to time. How can we define ourselves? \
+          Is it our roles in society that determine who we are? Is it our past experiences? Where does \
+          genetics fall into this picture? \
+          It's really hard to define us as people. We are, as far as we know, the most intelligent beings \
+          in the known universe. Knowing this, how does this define us?"}
         </Text>
         {"I'm so flattered you're here! "}
       </Box>

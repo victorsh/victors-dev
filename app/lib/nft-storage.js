@@ -13,4 +13,4 @@ async function pin_test() {
   console.log(metadata.url)
 }
 
-export const pin_test = pin_test
+export { pin_test }
