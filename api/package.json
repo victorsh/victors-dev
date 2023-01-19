@@ -7,11 +7,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon server.js",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dbuild": "docker build . -t victorsh/victorsdev-api"
   },
   "keywords": [],
   "license": "ISC",
   "dependencies": {
+    "algosdk": "^2.0.0",
     "axios": "^1.2.3",
     "dotenv": "^16.0.3",
     "express": "^4.18.2"
