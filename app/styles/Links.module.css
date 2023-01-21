@@ -3,7 +3,7 @@
   font-size: 2em;
   width: 100vw;
   height: 60px;
-  background: red;
+  background: #00B8D5;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -11,16 +11,10 @@
 }
 
 .links_wrapper {
-  width: 60vw;
+  width: 40vw;
   height: 60px;
   display: flex;
-  justify-content: center;
-}
-
-.title_text {
-  width: 50%;
-  height: 60px;
-  color: black;
+  justify-content: left;
 }
 
 .link {
@@ -29,7 +23,7 @@
 
 .wallets {
   width: 40vw;
-  height: 40px;
+  height: 60px;
   display: flex;
   justify-content: right;
   align-items: center;

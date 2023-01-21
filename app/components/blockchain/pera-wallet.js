@@ -1,6 +1,8 @@
 import React, { useEffect } from 'react'
+import Image from 'next/image'
 import { PeraWalletConnect } from "@perawallet/connect";
 import { Button } from '@chakra-ui/react'
+import styles from '../../styles/Links.module.css'
 
 export default function PeraWallet() {
   const peraWallet = new PeraWalletConnect()  
@@ -36,8 +38,8 @@ export default function PeraWallet() {
     pera_reconnect_session()
   })
   return (
-    <div>
-      <Button onClick={() => pera_connect_wallet()}>Pera Wallet</Button>
-    </div>
+    <Button className={styles.button} onClick={() => pera_connect_wallet()}>
+      <Image width={20} height={40} alt="PeraWallet" src='/pera-logomark-black.png' />
+    </Button>
   )
 }

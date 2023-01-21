@@ -1,4 +1,5 @@
 // https://medium.com/@zmommaerts/how-to-create-3d-text-in-react-three-fiber-a35376456a04
+import React, { useEffect } from 'react'
 import { extend } from '@react-three/fiber'
 import { FontLoader } from 'three/examples/jsm/loaders/FontLoader'
 import { TextGeometry } from 'three/examples/jsm/geometries/TextGeometry'
@@ -11,7 +12,7 @@ export default function Text3D(props) {
   return (
     <mesh {...props} recieveShadow castShadow>
       <textGeometry args={[props.text, {font, size: 1, height: 1}]} />
-      <meshPhysicalMaterial attach='material' color={'red'} />
+      <meshPhysicalMaterial attach='material' color={props.color} />
     </mesh>
   )
 }

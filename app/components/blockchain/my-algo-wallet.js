@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react'
 import algosdk from 'algosdk'
+import Image from 'next/image'
 import { Button } from '@chakra-ui/react'
 import MyAlgoConnect from '@randlabs/myalgo-connect'
+import styles from '../../styles/Links.module.css'
 
 export default function MyAlgoWallet() {
   const algodClient = new algosdk.Algodv2('', 'https://node.algoexplorerapi.io/', 443);
@@ -32,8 +34,8 @@ export default function MyAlgoWallet() {
     myAlgoWallet = new MyAlgoConnect()
   })
   return (
-    <div>
-      <Button onClick={() => connectToMyAlgo()}>A</Button>
-    </div>
+    <Button className={styles.button} onClick={() => connectToMyAlgo()}>
+      <Image width={24} height={48} alt="MyAlgoWallet" src='/myalgo-logo.png' />
+    </Button>
   )
 }

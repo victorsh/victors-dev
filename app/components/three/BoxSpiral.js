@@ -6,8 +6,8 @@ function BoxSpiral(props) {
   useFrame(({ clock }) => {
     myMesh.current.rotation.x = clock.getElapsedTime()
     myMesh.current.rotation.y = clock.getElapsedTime()
-    myMesh.current.position.x = 5 * Math.cos(clock.elapsedTime % 360)
-    myMesh.current.position.y = 5 * Math.sin(clock.elapsedTime % 360)
+    myMesh.current.position.x = -1 * props.radius * Math.cos(clock.elapsedTime % 360) + props.position[0]
+    myMesh.current.position.y = -1 * props.radius * Math.sin(clock.elapsedTime % 360) + props.position[1]
   })
   const handleClick = () => {
     myMesh.current.position.x += 1
@@ -15,7 +15,7 @@ function BoxSpiral(props) {
   return (
     <mesh {...props} ref={myMesh} onClick={() => handleClick()} recieveShadow castShadow>
       <boxBufferGeometry />
-      <meshPhysicalMaterial color={'blue'} />
+      <meshPhysicalMaterial color={props.color} />
     </mesh>
   )
 }
