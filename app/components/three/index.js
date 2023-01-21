@@ -5,7 +5,7 @@ import BoxSpiral from './BoxSpiral'
 import BoxTexture from './BoxTexture'
 import Floor from './Floor'
 import TetraSpiral from './TetraSpiral'
-import Sphere from './SPhere'
+import Sphere from './Sphere'
 import SpiralCircle from './SpiralCircle'
 
 // Text
