@@ -45,7 +45,7 @@ export default function Home() {
           <LightBulb />
           <Text3D position={[-3, 0, 0]} scale={[1, 1, 0.5]} color='#AAAAAA' text="Victor's Dev"/>
           <OrbitControls />
-          {process.env.ENV === 'DEV' ? <Stats /> : ''}
+          {process.env.NODE_ENV === 'DEV' ? <Stats /> : ''}
         </Canvas>
       </NonSSRWrapper>
     </div>

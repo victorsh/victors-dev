@@ -6,7 +6,7 @@ import { signOut, useSession } from 'next-auth/react';
 export default function Login() {
   const router = useRouter()
   const isActive = (pathname) => router.pathname === pathname
-  const {session, status} = useSession()
+  const { data: session, status } = useSession()
   console.log(session, status)
 
   let left = (
@@ -16,6 +16,14 @@ export default function Login() {
       </Link>
     </div> 
   )
+
+  const form = () => {
+    if (status === "authenticated") {
+      return <p>Signed in as {session.user.email}</p>
+    }
+
+    return <a href="/api/auth/signin">Sign in</a>
+  }
 
   let right = null
 
@@ -70,8 +78,7 @@ export default function Login() {
 
   return (
     <div>
-      {left}
-      {right}
+      {form}
     </div>
   )
 }
