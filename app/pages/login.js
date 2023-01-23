@@ -19,10 +19,10 @@ export default function Login() {
 
   const form = () => {
     if (status === "authenticated") {
-      return <p>Signed in as {session.user.email}</p>
+      return <Link>Signed in as {session.user.email}</Link>
     }
 
-    return <a href="/api/auth/signin">Sign in</a>
+    return <Link href="/api/auth/signin">Sign in</Link>
   }
 
   let right = null
