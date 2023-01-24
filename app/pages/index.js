@@ -7,11 +7,16 @@ import NonSSRWrapper from '../components/NonSSRWrapper'
 import Header from '../components/Header'
 import Links from '../components/Links'
 
+import randomHexColor from 'random-hex-color'
+
 import Stars from '../components/three/Stars'
 import LightBulb from '../components/three/LightBulb'
-import { BoxSpiral } from '@/components/three'
+import { Floor, Box } from '@/components/three'
+// import { BoxSpiral } from '@/components/three'
 import Text3D from '../components/three/Text3D'
+import BoxSpiral from '../components/three/BoxSpiral'
 import OrbitControls from '../components/three/OrbitControls'
+import { EffectComposer, DepthOfField, Bloom, Noise, Vignette } from '@react-three/postprocessing'
 
 import startStyles from '../styles/Start.module.css'
 
@@ -28,6 +33,14 @@ export default function Home() {
       isClosable: true
     })
   })
+
+  const VortexBoxes = () => {
+    const BoxSpirals = []
+    for (let i = 0; i < 100; i++) {
+      BoxSpirals.push(<BoxSpiral position={[0, 0, -1*(i - 2)]} rotationOffset={i * 1.1} color={randomHexColor()} radius={'4'}/>)
+    }
+    return BoxSpirals
+  }
   return (
     <div className={startStyles.scene}>
       <Header />
@@ -41,11 +54,20 @@ export default function Home() {
           }}
         >
           <Stars />
-          {/* <directionalLight castShadow /> */}
+          <directionalLight castShadow />
+          <ambientLight intensity={0.5} />
           <LightBulb />
+          <VortexBoxes />
           <Text3D position={[-3, 0, 0]} scale={[1, 1, 0.5]} color='#AAAAAA' text="Victor's Dev"/>
+          
           <OrbitControls />
-          {process.env.NODE_ENV === 'DEV' ? <Stats /> : ''}
+          <EffectComposer>
+            {/* <DepthOfField focusDistance={0} focalLength={0.02} bokehScale={2} height={480} /> */}
+            <Bloom luminanceThreshold={0} luminanceSmoothing={2} height={300} />
+            <Noise opacity={0.02} />
+            <Vignette eskil={false} offset={0.1} darkness={1.1} />
+          </EffectComposer>
+          <Stats />
         </Canvas>
       </NonSSRWrapper>
     </div>
