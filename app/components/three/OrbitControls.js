@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { extend, useThree } from '@react-three/fiber'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
+import { useFrame } from '@react-three/fiber'
 import * as THREE from 'three'
 
 extend({ OrbitControls })
@@ -11,6 +12,13 @@ function Controls(props) {
   useEffect(() => {
     myMesh.current.panSpeed = 0
   },[])
+  let speed = 0.01
+  useFrame(({ clock }) => {
+    if (camera.position.z > -10) {
+      camera.position.z -= speed * clock.getElapsedTime()
+      speed += 0.01
+    }
+  })
   return (
     <orbitControls ref={myMesh}
       {...props}

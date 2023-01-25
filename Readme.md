@@ -7,3 +7,8 @@ This repository is composed of serveral projects.
 App is the frontend
 api is the backend
 eth-dev is to build smart contracts for EVM based chains
+
+### TODO
+- api kafka implementation
+- add ragdoll scene
+- better ui

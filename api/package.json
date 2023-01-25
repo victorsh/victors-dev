@@ -16,7 +16,8 @@
     "algosdk": "^2.0.0",
     "axios": "^1.2.3",
     "dotenv": "^16.0.3",
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "kafkajs": "^2.2.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

@@ -12,7 +12,7 @@ export default function Text3D(props) {
   return (
     <mesh {...props} recieveShadow castShadow>
       <textGeometry args={[props.text, {font, size: 1, height: 1}]} />
-      <meshPhysicalMaterial attach='material' color={props.color} />
+      <meshPhysicalMaterial emissive={props.color} emissiveIntensity={2} attach='material' color={props.color} />
     </mesh>
   )
 }

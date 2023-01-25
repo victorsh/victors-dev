@@ -7,9 +7,15 @@ import { random } from 'maath'
 export default function Stars(props) {
   const ref = useRef()
   const [sphere] = useState(() => random.inSphere(new Float32Array(5000), { radius: 1.5 }))
-  useFrame((state, delta) => {
-    ref.current.rotation.x -= delta / 10
-    ref.current.rotation.y -= delta / 15
+  let speed = 0.01
+  useFrame(({ clock }) => {
+    console.log(clock.getDelta())
+    ref.current.rotation.x -= clock.getDelta() * 60
+    ref.current.rotation.y -= clock.getDelta() * 60
+    if (ref.current.position.z > -10) {
+      // ref.current.position.z -= speed * clock.getElapsedTime()
+    }
+    speed += 0.01
   })
   return (
     <group rotation={[0, 0, Math.PI / 8]} scale={[10, 10, 10]}>

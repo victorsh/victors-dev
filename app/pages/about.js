@@ -14,7 +14,7 @@ export default function About(props) {
         <Box maxW="2xl" m="0 auto">
           <Heading as="h1">About Me</Heading>
           <br/>
-          <Text>
+          <Text style={{'margin': '1em'}}>
             {"To know who I am we'll need to go back to 1991, the start of the the summer, may 30.\
               13 days later, the Los Angeles Lakers won the NBA Championship on June 12.\
               The internet was just getting started. Super Mario World, A Link to the Past and Sonic the Hedgehog had\
@@ -24,7 +24,7 @@ export default function About(props) {
             "}
           </Text>
           <br/>
-          <Text>
+          <Text style={{'margin': '1em'}}>
             {"As a baby, my family played a little game with me. They held out two objects. One was a digital watch and the other was\
               something I can't remember. But that something is what ended up defining the rest of my life.\
               No, of course I picked the stethoscope. And as I grew, more computerized objects popped up around me. One of the first, being\
@@ -34,7 +34,7 @@ export default function About(props) {
             "}
           </Text>
           <br/>
-          <Text>
+          <Text style={{'margin': '1em'}}>
             {"And so my fascination with computer and technology continued to grow over the years. I eventually string to dabble in programming\
               and oh my what a thrill it was. I type of bunch of letters, and out pop a bunch of pixels moving.\
             "}

@@ -5,10 +5,10 @@ function BoxSpiral(props) {
   const myMesh = React.useRef()
   const [timeDelta, setTimeDelta] = useState(0)
   useFrame(({ clock }) => {
-    myMesh.current.rotation.x = clock.getElapsedTime()
-    myMesh.current.rotation.y = clock.getElapsedTime()
-    myMesh.current.position.x = -1 * props.radius * Math.cos(clock.elapsedTime + props.rotationOffset % 360)
-    myMesh.current.position.y = -1 * props.radius * Math.sin(clock.elapsedTime + props.rotationOffset % 360)
+    myMesh.current.rotation.x = clock.getElapsedTime() / 2
+    myMesh.current.rotation.y = clock.getElapsedTime() / 2
+    myMesh.current.position.x = -1 * props.radius * Math.cos(clock.elapsedTime / 2 + props.rotationOffset % 360)
+    myMesh.current.position.y = -1 * props.radius * Math.sin(clock.elapsedTime / 2 + props.rotationOffset % 360)
   })
   const handleClick = () => {
     myMesh.current.position.x += 1
@@ -16,7 +16,7 @@ function BoxSpiral(props) {
   return (
     <mesh {...props} ref={myMesh} onClick={() => handleClick()}>
       <boxGeometry />
-      <meshPhysicalMaterial color={props.color} />
+      <meshPhysicalMaterial emissive={props.color} emissiveIntensity={1} color={props.color} />
     </mesh>
   )
 }

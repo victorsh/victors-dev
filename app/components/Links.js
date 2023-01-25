@@ -15,11 +15,11 @@ function Links() {
     <div className={styles.links_container}>
       <div className={styles.links_wrapper}>
         <div>
-          <Button className={styles.button}><Link className={styles.link} href='/'>Home</Link></Button>
-          <Button className={styles.button}><Link className={styles.link} href='/start'>Start</Link></Button>
+          <Link className={styles.link} href='/'><Button className={styles.button}>Home</Button></Link>
+          <Link className={styles.link} href='/start'><Button className={styles.button}>Start</Button></Link>
           {/* <Button className={styles.button}><Link className={styles.link} href='/start'>Projects</Link></Button>
           <Button className={styles.button}><Link className={styles.link} href='/start'>Experience</Link></Button> */}
-          <Button className={styles.button}><Link className={styles.link} href='/about'>About</Link></Button>
+          <Link className={styles.link} href='/about'><Button className={styles.button}>About</Button></Link>
         </div>
       </div>
       <div className={styles.wallets}>
