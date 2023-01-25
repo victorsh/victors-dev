@@ -1,7 +1,7 @@
 import { forwardRef } from 'react'
 import { RoundedBox } from '@react-three/drei'
 
-export const Block = forwardRef(({
+const Block = forwardRef(({
   children, transparent=false, opacity=1, color='white', args=[1, 1, 1], ...props
 }, ref) => {
   return (
@@ -11,3 +11,6 @@ export const Block = forwardRef(({
     </RoundedBox>
   )
 })
+
+Block.displayName = 'Block'
+export { Block }
