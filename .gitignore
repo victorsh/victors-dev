@@ -33,3 +33,5 @@ app/.env*.local
 app/.vercel
 app/.env
 app/prod-ca-2021.cer
+
+eth-dev/.env

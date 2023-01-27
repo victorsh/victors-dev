@@ -9,9 +9,8 @@ export default function Stars(props) {
   const [sphere] = useState(() => random.inSphere(new Float32Array(5000), { radius: 1.5 }))
   let speed = 0.01
   useFrame(({ clock }) => {
-    console.log(clock.getDelta())
-    ref.current.rotation.x -= clock.getDelta() * 60
-    ref.current.rotation.y -= clock.getDelta() * 60
+    ref.current.rotation.x -= 0.001
+    ref.current.rotation.y -= 0.001
     if (ref.current.position.z > -10) {
       // ref.current.position.z -= speed * clock.getElapsedTime()
     }
@@ -20,7 +19,7 @@ export default function Stars(props) {
   return (
     <group rotation={[0, 0, Math.PI / 8]} scale={[10, 10, 10]}>
       <Points ref={ref} positions={sphere} stride={3} frustumCulled={false} {...props}>
-        <PointMaterial transparent color="#ffa0e0" size={0.05} sizeAttenuation={true} depthWrite={false} />
+        <PointMaterial transparent color="#ffffff" size={0.05} sizeAttenuation={true} depthWrite={false} emissiveIntensity={0} />
       </Points>
     </group>
   )

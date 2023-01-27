@@ -15,7 +15,6 @@ import randomHexColor from 'random-hex-color'
 import Stars from '../components/three/Stars'
 import LightBulb from '../components/three/LightBulb'
 import { Floor, Box } from '@/components/three'
-// import { BoxSpiral } from '@/components/three'
 import Text3D from '../components/three/Text3D'
 import BoxSpiral from '../components/three/BoxSpiral'
 import OrbitControls from '../components/three/OrbitControls'
@@ -60,7 +59,7 @@ export default function Home() {
           shadows={true}
           className={startStyles.canvas}
           camera={{
-            position: [0, 0, 7], fov: 90
+            position: [0, 0, 0], fov: 90
           }}
         >
           <Stars />
@@ -68,12 +67,12 @@ export default function Home() {
           <ambientLight intensity={0.3} />
           <LightBulb />
           <VortexBoxes />
-          <Text3D position={[-3, 0, -15]} scale={[1, 1, 0.5]} color={'#004F5C'} text="Victor's Dev"/>
+          <Text3D position={[-3, 0, -15]} scale={[1, 1, 0.5]} color={'#a30303'} text="Victor's Dev"/>
           
           <OrbitControls />
           <EffectComposer>
-            {/* <DepthOfField focusDistance={0} focalLength={0.02} bokehScale={2} height={480} /> */}
-            <Bloom luminanceThreshold={0} luminanceSmoothing={2} height={300} />
+            {/* <DepthOfField focusDistance={1} focalLength={1} bokehScale={2} height={1024} /> */}
+            <Bloom luminanceThreshold={0} luminanceSmoothing={2} height={500} />
             <Noise opacity={0.02} />
             <Vignette eskil={false} offset={0.1} darkness={1.1} />
           </EffectComposer>

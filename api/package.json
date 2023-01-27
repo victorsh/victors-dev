@@ -13,6 +13,7 @@
   "keywords": [],
   "license": "ISC",
   "dependencies": {
+    "alchemy-sdk": "^2.4.0",
     "algosdk": "^2.0.0",
     "axios": "^1.2.3",
     "dotenv": "^16.0.3",
@@ -20,6 +21,7 @@
     "kafkajs": "^2.2.3"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "nodemon": "^2.0.20",
+    "pm2": "^5.2.2"
   }
 }
