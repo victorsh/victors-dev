@@ -3,7 +3,9 @@ import { Heading, Text, Box, flexbox } from '@chakra-ui/react'
 import Links from '../components/Links'
 import Header from '../components/Header'
 
-import startStyles from '../styles/Start.module.css'
+import aboutStyle from '../styles/Canvas.module.css'
+import canvasStyle from '../styles/Canvas.module.css'
+
 import NonSSRWrapper from '../components/NonSSRWrapper'
 import { Canvas } from '@react-three/fiber'
 import { Stats } from '@react-three/drei'
@@ -18,11 +20,11 @@ export default function About(props) {
     <div style={{'overflow': "hidden", 'height': '100%'}}>
       <Header />
       <Links />
-      <div className={startStyles.scene}>
+      <div className={canvasStyle.scene}>
         <NonSSRWrapper>
           <Canvas
             shadows={true}
-            className={startStyles.canvas}
+            className={canvasStyle.canvas}
             camera={{
               position: [0, 0, 0], fov: 90
             }}
@@ -37,7 +39,7 @@ export default function About(props) {
           </Canvas>
         </NonSSRWrapper>
       </div>
-      <div style={{"display":"flex", "justify-content": "center", "color": "white", 'height': '80%'}}>
+      <div style={{"display":"flex", "justify-content": "center", "color": "white", 'height': '100vh'}}>
         <Box maxW="lg" m="0 auto" style={{"background": "green", "opacity": "0.3", "width":"100%", "margin": "0"}}>
         </Box>
         <Box maxW="2xl" m="0 auto">
@@ -47,9 +49,11 @@ export default function About(props) {
             {"To know who I am we'll need to go back to 1991, the start of the the summer, may 30.\
               13 days later, the Los Angeles Lakers won the NBA Championship on June 12.\
               The internet was just getting started. Super Mario World, A Link to the Past and Sonic the Hedgehog had\
-              all released in this year. I group up in an age of rapid technological grow. Which lead to an exceptional\
+              all released in this year. I grew up in an age of rapid technological growth. This lead to an exceptional\
               opportunity to explore a world that's rapidly changing. In the ye old days, I can image life being very slow\
-              most of the time.\
+              most of the time. Traveling was slow, mail was slow, birds were used to send messages back and forth. I imagine\
+              a lot of sitting around and waiting. This is no longer the case, we live and a world with an infinite number\
+              of things to do and explore, especially in the realm of computer and technology.\
             "}
           </Text>
           <br/>
@@ -71,8 +75,18 @@ export default function About(props) {
               learning how to program in Java and C++.\
             "}
           </Text>
+          <Text style={{'margin-left': '1rem', 'margin-right': '1rem'}}>
+            {"Many many years passed and my experience with programming and web development continued to grow. I learned to use\
+              PHP, Apache and jQuery to build websites, mostly as a hobby. This skill eventually came in handy when a family member\
+              needed a website built for their business. And so I went about building an e-commerce site using codeigniter from scratch.\
+              I made an ample amount of progress building the site but ran out of time. In a last minute effort I switched to using\
+              Woocommerce. The results were great and my family was happy. I learned a valuable lesson going through this process. Although\
+              I wanted to build from scratch and learn the whole process of building an e-commerce site. Sometimes it's better not to\
+              to re-create the wheel and instead get to a finished product as quickly as possible.\
+            "}
+          </Text>
         </Box>
-        <Box maxW="lg" m="0 auto" style={{"background": "green", "opacity": "0.3", "width":"100%", "margin": "0", "height": "100vh"}}>
+        <Box maxW="lg" m="0 auto" style={{"background": "green", "opacity": "0.3", "width":"100%", "margin": "0"}}>
         </Box>
       </div>
     </div>
