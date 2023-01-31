@@ -72,7 +72,7 @@ export default function Home() {
           <OrbitControls />
           <EffectComposer>
             {/* <DepthOfField focusDistance={1} focalLength={1} bokehScale={2} height={1024} /> */}
-            <Bloom luminanceThreshold={0} luminanceSmoothing={2} height={500} />
+            <Bloom luminanceThreshold={1} luminanceSmoothing={2} height={500} />
             <Noise opacity={0.02} />
             <Vignette eskil={false} offset={0.1} darkness={1.1} />
           </EffectComposer>

@@ -1,13 +1,15 @@
 .links_container {
+  position: fixed;
   color: white;
   font-size: 2em;
   width: 100vw;
   height: 60px;
-  background: #00B8D5;
+  background-color: rgba(200, 255, 255, 0.3);
   display: flex;
   justify-content: space-around;
   align-items: center;
   overflow: hidden;
+  z-index: 1;
 }
 
 .links_wrapper {
@@ -18,10 +20,12 @@
 }
 
 .link {
+  background: transparent;
   color: #000;
 }
 
 .wallets {
+  background: transparent;
   width: 40vw;
   height: 60px;
   display: flex;
@@ -30,6 +34,7 @@
 }
 
 .space {
+  background: transparent;
   margin-right: 2px;
 }
 
