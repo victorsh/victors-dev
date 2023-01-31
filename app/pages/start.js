@@ -1,8 +1,8 @@
 import { Canvas } from '@react-three/fiber'
 import { Stats } from '@react-three/drei'
-import NonSSRWrapper from '../components/NonSSRWrapper'
-import Links from '../components/Links'
-import Header from '../components/Header'
+import NonSSRWrapper from '../components/utils/NonSSRWrapper'
+import Links from '../components/layouts/Links'
+import Header from '../components/layouts/Header'
 import css from '../styles/Start.module.css'
 // Three Custom Componenets
 import Box from '../components/three/Box'

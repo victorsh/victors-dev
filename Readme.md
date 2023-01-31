@@ -7,6 +7,7 @@ This repository is composed of serveral projects.
 App is the frontend
 api is the backend
 eth-dev is to build smart contracts for EVM based chains
+added redux toolkit
 
 ### TODO
 - api kafka implementation

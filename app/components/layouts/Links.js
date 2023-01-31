@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Button } from '@chakra-ui/react'
-import EthWallet from './blockchain/eth-wallet'
-import PeraWallet from './blockchain/pera-wallet'
-import MyAlgoWallet from './blockchain/my-algo-wallet'
+import EthWallet from '../blockchain/eth-wallet'
+import PeraWallet from '../blockchain/pera-wallet'
+import MyAlgoWallet from '../blockchain/my-algo-wallet'
 import Link from 'next/link'
 import Image from 'next/image'
-import styles from '../styles/Links.module.css'
+import styles from '../../styles/Links.module.css'
 
 function Links() {
   useEffect(() => {

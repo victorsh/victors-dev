@@ -1,16 +1,14 @@
 import React from 'react'
 import { Heading, Text, Box, flexbox } from '@chakra-ui/react'
-import Links from '../components/Links'
-import Header from '../components/Header'
+import Links from '../components/layouts/Links'
+import Header from '../components/layouts/Header'
 
-import aboutStyle from '../styles/Canvas.module.css'
+import aboutStyle from '../styles/About.module.css'
 import canvasStyle from '../styles/Canvas.module.css'
 
-import NonSSRWrapper from '../components/NonSSRWrapper'
+import NonSSRWrapper from '../components/utils/NonSSRWrapper'
 import { Canvas } from '@react-three/fiber'
 import { Stats } from '@react-three/drei'
-import Text3D from '../components/three/Text3D'
-import BoxSpiral from '../components/three/BoxSpiral'
 import OrbitControls from '../components/three/OrbitControls'
 import Stars from '../components/three/Stars'
 import LightBulb from '../components/three/LightBulb'
@@ -39,10 +37,10 @@ export default function About(props) {
           </Canvas>
         </NonSSRWrapper>
       </div>
-      <div style={{"display":"flex", "justify-content": "center", "color": "white", 'height': '100vh'}}>
-        <Box maxW="lg" m="0 auto" style={{"background": "green", "opacity": "0.3", "width":"100%", "margin": "0"}}>
+      <div className={aboutStyle.about_container}>
+        <Box maxW="lg" m="0 auto" className={aboutStyle.buffer_box}>
         </Box>
-        <Box maxW="2xl" m="0 auto">
+        <Box maxW="2xl" m="0 auto" className={aboutStyle.text_container}>
           <Heading as="h1" style={{'margin': '1rem'}}>About Me</Heading>
           <br/>
           <Text style={{'margin-left': '1rem', 'margin-right': '1rem'}}>
@@ -86,7 +84,7 @@ export default function About(props) {
             "}
           </Text>
         </Box>
-        <Box maxW="lg" m="0 auto" style={{"background": "green", "opacity": "0.3", "width":"100%", "margin": "0"}}>
+        <Box maxW="lg" m="0 auto" className={aboutStyle.buffer_box}>
         </Box>
       </div>
     </div>

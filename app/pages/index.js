@@ -6,9 +6,9 @@ import { Canvas } from '@react-three/fiber'
 import { Stats } from '@react-three/drei'
 import { EffectComposer, DepthOfField, Bloom, Noise, Vignette } from '@react-three/postprocessing'
 
-import NonSSRWrapper from '../components/NonSSRWrapper'
-import Header from '../components/Header'
-import Links from '../components/Links'
+import NonSSRWrapper from '../components/utils/NonSSRWrapper'
+import Header from '../components/layouts/Header'
+import Links from '../components/layouts/Links'
 
 import randomHexColor from 'random-hex-color'
 
