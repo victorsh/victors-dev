@@ -1,21 +1,22 @@
 import React from 'react'
 import { Heading, Text, Box, flexbox } from '@chakra-ui/react'
-import Links from '../components/layouts/Links'
-import Header from '../components/layouts/Header'
+import Links from '@/components/layouts/Links'
+import Header from '@/components/layouts/Header'
+import Footer from '@/components/layouts/Footer'
 
-import aboutStyle from '../styles/About.module.css'
-import canvasStyle from '../styles/Canvas.module.css'
+import aboutStyle from '@/styles/About.module.css'
+import canvasStyle from '@/styles/Canvas.module.css'
 
-import NonSSRWrapper from '../components/utils/NonSSRWrapper'
+import NonSSRWrapper from '@/components/utils/NonSSRWrapper'
 import { Canvas } from '@react-three/fiber'
 import { Stats } from '@react-three/drei'
-import OrbitControls from '../components/three/OrbitControls'
-import Stars from '../components/three/Stars'
-import LightBulb from '../components/three/LightBulb'
+import OrbitControls from '@/components/three/OrbitControls'
+import Stars from '@/components/three/Stars'
+import LightBulb from '@/components/three/LightBulb'
 
 export default function About(props) {
   return (
-    <div style={{'overflow': "hidden", 'height': '100%'}}>
+    <div className={aboutStyle.about_container}>
       <Header />
       <Links />
       <div className={canvasStyle.scene}>
@@ -37,13 +38,13 @@ export default function About(props) {
           </Canvas>
         </NonSSRWrapper>
       </div>
-      <div className={aboutStyle.about_container}>
+      <div className={aboutStyle.about_wrapper}>
         <Box maxW="lg" m="0 auto" className={aboutStyle.buffer_box}>
         </Box>
         <Box maxW="2xl" m="0 auto" className={aboutStyle.text_container}>
           <Heading as="h1" style={{'margin': '1rem'}}>About Me</Heading>
           <br/>
-          <Text style={{'margin-left': '1rem', 'margin-right': '1rem'}}>
+          <Text className={aboutStyle.text_box}>
             {"To know who I am we'll need to go back to 1991, the start of the the summer, may 30.\
               13 days later, the Los Angeles Lakers won the NBA Championship on June 12.\
               The internet was just getting started. Super Mario World, A Link to the Past and Sonic the Hedgehog had\
@@ -55,7 +56,7 @@ export default function About(props) {
             "}
           </Text>
           <br/>
-          <Text style={{'margin-left': '1rem', 'margin-right': '1rem'}}>
+          <Text className={aboutStyle.text_box}>
             {"As a baby, my family played a little game with me. They held out two objects. One was a digital watch and the other was\
               something I can't remember. But that something is what ended up defining the rest of my life.\
               No, of course I picked the stethoscope. And as I grew, more computerized objects popped up around me. One of the first, being\
@@ -65,7 +66,7 @@ export default function About(props) {
             "}
           </Text>
           <br/>
-          <Text style={{'margin-left': '1rem', 'margin-right': '1rem'}}>
+          <Text className={aboutStyle.text_box}>
             {"And so my fascination with computers and technology continued to grow over the years. I eventually started to dabble in programming\
               and oh my what a thrill it was. I type of bunch of letters, and out pop a bunch of pixels moving across the screen.\
               I played around with some HTML and CSS for a while, not really getting into actual programming languages, until High School.\
@@ -73,7 +74,8 @@ export default function About(props) {
               learning how to program in Java and C++.\
             "}
           </Text>
-          <Text style={{'margin-left': '1rem', 'margin-right': '1rem'}}>
+          <br/>
+          <Text className={aboutStyle.text_box}>
             {"Many many years passed and my experience with programming and web development continued to grow. I learned to use\
               PHP, Apache and jQuery to build websites, mostly as a hobby. This skill eventually came in handy when a family member\
               needed a website built for their business. And so I went about building an e-commerce site using codeigniter from scratch.\
@@ -87,6 +89,7 @@ export default function About(props) {
         <Box maxW="lg" m="0 auto" className={aboutStyle.buffer_box}>
         </Box>
       </div>
+      <Footer />
     </div>
   )
 }

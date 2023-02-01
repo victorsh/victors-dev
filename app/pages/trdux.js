@@ -44,17 +44,17 @@ export default function Trdux() {
   return (
     <>
       <h1>Redux Testings</h1>
-      <p>What's your name?</p>
+      <p>{"What's your name?"}</p>
       <input placeholder="Name here" ref={name} />
       <button onClick={submitName}>Submit</button>
       <DisplayName />
       
-      <p>What's your place?</p>
+      <p>{"What's your place?"}</p>
       <input placeholder="Place here" ref={place} />
       <button onClick={submitPlace}>Submit</button>
       <DisplayPlace />
 
-      <p>More than one place?</p>
+      <p>{"More than one place?"}</p>
       <input placeholder="Places here" ref={places} />
       <button onClick={submitPlaces}>Submit</button>
       <DisplayPlaces />
