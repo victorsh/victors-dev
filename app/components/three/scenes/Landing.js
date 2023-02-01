@@ -56,7 +56,7 @@ export default function Landing(props) {
           <Noise opacity={0.02} />
           <Vignette eskil={false} offset={0.1} darkness={1.1} />
         </EffectComposer>
-        <Stats />
+        {process.env.NODE_ENV === 'development' ? <Stats /> : ''}
       </Canvas>
     </NonSSRWrapper>
   )

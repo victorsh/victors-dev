@@ -15,7 +15,6 @@ function Links() {
     <div className={styles.links_container}>
       <div className={styles.links_wrapper}>
         <Link className={styles.link} href='/'><Button className={styles.button}>Home</Button></Link>
-        <Link className={styles.link} href='/start'><Button className={styles.button}>Start</Button></Link>
         <Link className={styles.link} href='/about'><Button className={styles.button}>About</Button></Link>
       </div>
       <div className={styles.wallets}>

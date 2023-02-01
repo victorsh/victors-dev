@@ -14,6 +14,7 @@ const inter = Inter({ subsets: ['latin'] })
 export default function Home() {
   const toast = useToast()
   useEffect(() => {
+    console.log(process.env.NODE_ENV)
     toast({
       title: 'Hello!',
       description: 'Welcome to my site.',

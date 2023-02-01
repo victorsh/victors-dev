@@ -15,9 +15,9 @@ export default function Footer(props) {
   }
 
   return (
-    <div className={footerStyle.footer}>
+    <div className={footerStyle.footer} onMouseEnter={mouseOver} onMouseLeave={mouseOut}>
       <p hidden={!footerExpandHidden}>Hover Over Me</p>
-      <div className={footerStyle.sources_container} onMouseEnter={mouseOver} onMouseLeave={mouseOut}>
+      <div className={footerStyle.sources_container}>
         <Link href='https://github.com/victorsh'><Image src='/icons8-github-glyph-neue/icons8-github-512.png' width="50" height="50" alt="github" /></Link>
         <Link href='https://www.linkedin.com/in/victor-shahbazian/'><Image src='/icons8-linkedin-ios-16-filled/icons8-linkedin-500.png' width="50" height="50" alt="linkedin" /></Link>
         <Link href='victor.sh.91@gmail.com'><Image src='/icons8-mail-ios-16-filled/icons8-mail-500.png' width="50" height="50" alt="email" /></Link>
