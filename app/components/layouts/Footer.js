@@ -23,7 +23,7 @@ export default function Footer(props) {
         <Link href='victor.sh.91@gmail.com'><Image src='/icons8-mail-ios-16-filled/icons8-mail-500.png' width="50" height="50" alt="email" /></Link>
       </div>
       <div className={footerStyle.icons8}>
-        <a target="_blank" href="https://icons8.com/icon/8808/linkedin">LinkedIn</a> icon by <a target="_blank" href="https://icons8.com">Icons8</a>
+        <a href="https://icons8.com/icon/8808/linkedin">LinkedIn</a> icon by <a href="https://icons8.com">Icons8</a>
       </div>
     </div>
   )
