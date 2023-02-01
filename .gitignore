@@ -35,3 +35,6 @@ app/.env
 app/prod-ca-2021.cer
 
 eth-dev/.env
+
+algo-dev/pyteal-course
+algo-dev/sandbox
