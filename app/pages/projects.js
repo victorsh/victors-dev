@@ -2,6 +2,8 @@ import React from 'react'
 
 export default function Experience() {
   return (
-    <div>Projects</div>
+    <div>
+      Projects
+    </div>
   )
 }
