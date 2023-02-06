@@ -1,4 +1,7 @@
+'use strict'
+require('dotenv').config()
 const { Kafka } = require('kafkajs')
+
 const kafka = new Kafka({
   clientId: 'my-app',
   brokers: ['localhost:9092']
@@ -11,7 +14,6 @@ module.exports = async () => {
 
   await consumer.run({
     eachMessage: async ({ topic, partition, message }) => {
-      console.log('hi')
       console.log({
         partition,
         offset: message.offset,
