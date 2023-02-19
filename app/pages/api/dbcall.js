@@ -14,7 +14,10 @@ export default async function handler(req, res) {
         .from("Item")
         .select("*")
         .order('created_at', { ascending: true })
-      if (error) throw error
+      if (error) {
+        console.error(error)
+        res.status(500).json({ error: error })
+      }
       res.status(200).json({ items: data })
     } catch (error) {
       res.status(500).json({ error: error })
@@ -28,7 +31,10 @@ export default async function handler(req, res) {
         .insert([{
           data: 'another sample'
         }]).single()
-      if (error) throw error
+      if (error) {
+        console.error(error)
+        res.status(500).json({ error: error })
+      }
       res.status(201).json({ message: 'created'})
     } catch (error) {
       res.status(500).json({ error: error })

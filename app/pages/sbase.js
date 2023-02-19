@@ -8,7 +8,7 @@ export default function Sbase() {
     const base_url = url_select()
     console.log(base_url)
     try {
-      const data = await fetch(`${base_url}/api/sbase`)
+      const data = await fetch(`${base_url}/api/dbcall`)
       const { items } = await data.json()
       setItems(items)
     } catch (error) {
