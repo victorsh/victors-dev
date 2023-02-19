@@ -8,7 +8,6 @@ export default function Sbase() {
   const [itemData, setItemData] = useState('')
   const fetchItems = async () => {
     const base_url = url_select()
-    console.log(base_url)
     try {
       const data = await fetch(`/api/dbcall`, {
         method: 'GET'
@@ -21,6 +20,14 @@ export default function Sbase() {
   }
 
   const insertItem = async () => {
+    try {
+      await fetch(`/api/dbcall`, {
+        method: 'POST'
+      })
+      await fetchItems()
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   const displayItems = () => {
