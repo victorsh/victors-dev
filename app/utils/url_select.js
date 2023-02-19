@@ -1,9 +1,12 @@
 export const url_select = () => {
   let url = ''
-  if (process.env.NODE_ENV === 'development') {
-    url = process.env.NEXT_PUBLIC_LOCAL_URL
-  } else if (process.env.NODE_ENV === 'production') {
-    url = process.env.NEXT_PUBLIC_PROD_URL
+  console.log(process.env.NEXT_PUBLIC_ENV)
+  if (process.env.NEXT_PUBLIC_ENV === 'local') {
+    url = "http://127.0.0.1:3000"
+  } else if (process.env.NEXT_PUBLIC_ENV === 'development') {
+    url = "https://dev.victorsdev.com"
+  } else if (process.env.NEXT_PUBLIC_ENV === 'production') {
+    url = "https://victorsdev.com"
   }
 
   return url

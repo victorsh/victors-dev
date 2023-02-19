@@ -41,7 +41,7 @@ export default function Login() {
             <div>Enter Password</div>
             <input type='password' name='password' required />
           </label>
-          <label for="whois">
+          <label htmlFor="whois">
             Who is?
           </label>
           <select id="whois" name="whois">

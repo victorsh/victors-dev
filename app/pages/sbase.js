@@ -1,11 +1,14 @@
 import { useState, useEffect } from 'react'
+import { url_select } from '@/utils/url_select'
 
 export default function Sbase() {
   const [items, setItems] = useState([])
   const [itemData, setItemData] = useState('')
   const fetchItems = async () => {
+    const base_url = url_select()
+    console.log(base_url)
     try {
-      const data = await fetch('http://127.0.0.1:3000/api/sbase')
+      const data = await fetch(`${base_url}/api/sbase`)
       const { items } = await data.json()
       setItems(items)
     } catch (error) {
