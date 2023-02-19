@@ -6,7 +6,7 @@ const sessionOptions = {
   password: process.env.MANAGER_SECRET_COOKIE_PASSWORD,
   cookieName: 'next-iron-session/examples/next.js',
   cookieOptions: {
-    secure: process.env.NODE_ENV === 'production'
+    secure: process.env.NODE_ENV === 'production' || process.env.NODE_ENV === 'development' || process.env.NODE_ENV === 'local'
   }
 }
 
