@@ -16,7 +16,7 @@ export default function Home() {
   useEffect(() => {
     console.log(process.env.NODE_ENV)
     toast({
-      title: 'Hello!',
+      title: 'Is Dev!',
       description: 'Welcome to my site.',
       status: 'success',
       duration: 9000,
