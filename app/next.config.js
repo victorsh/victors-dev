@@ -17,6 +17,14 @@ const nextConfig = {
     }
     
     return config
+  },
+  async rewrites() {
+    return [
+      {
+        source: '/api/:path*',
+        destination: 'https://victorsdev.com/:path*'
+      }
+    ]
   }
 }
 
