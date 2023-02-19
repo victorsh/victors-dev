@@ -2,12 +2,18 @@ import { supabase } from '@/utils/supabase'
 import NextCors from 'nextjs-cors'
 
 export default async function handler(req, res) {
+  res.setHeader('Access-Control-Allow-Credentials', true)
+  res.setHeader('Access-Control-Allow-Origin', '*')
+  res.setHeader('Access-Control-Allow-Methods', 'GET,OPTIONS,PATCH,DELETE,POST,PUT')
+  res.setHeader(
+    'Access-Control-Allow-Headers',
+    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+  )
   await NextCors(req, res, {
     methods: ['GET', 'POST'],
     origin: '*',
     optionsSuccessStatus: 200
-  }) 
-
+  })
   if (req.method === 'GET') {
     try {
       const { data, error } = await supabase

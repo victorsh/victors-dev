@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react'
 import { url_select } from '@/utils/url_select'
 
+// https://javascript.info/fetch-crossorigin
+
 export default function Sbase() {
   const [items, setItems] = useState([])
   const [itemData, setItemData] = useState('')
@@ -8,7 +10,13 @@ export default function Sbase() {
     const base_url = url_select()
     console.log(base_url)
     try {
-      const data = await fetch(`${base_url}/api/dbcall`)
+      const data = await fetch(`${base_url}/api/dbcall`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*'
+        }
+      })
       const { items } = await data.json()
       setItems(items)
     } catch (error) {
