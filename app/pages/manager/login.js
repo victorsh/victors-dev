@@ -35,15 +35,16 @@ export default function Login() {
 
   return (
     <div className={styles.login_wrapper}>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Enter Password
-          <input type='password' name='password' required />
-        </label>
-
-        <button type='submit'>Login</button>
-        {errorMsg && <p>{errorMsg}</p>}
-      </form>
+      <div className={styles.login_form_wrapper}>
+        <form onSubmit={handleSubmit}>
+          <label>
+            <div>Enter Password</div>
+            <input type='password' name='password' required />
+          </label>
+          <button type='submit'>Login</button>
+          {errorMsg && <p>{errorMsg}</p>}
+        </form>
+      </div>
     </div>
   )
 }

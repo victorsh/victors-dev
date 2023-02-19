@@ -1,3 +1,6 @@
-.calendar-main {
-  background: red;
+.calendar_wrapper {
+  background: white;
+  width: 100vw;
+  height: 100vh;
+  margin: 0 auto;
 }
