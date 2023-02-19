@@ -1,5 +1,4 @@
-import { useEffect, useState } from 'react'
-import { Button } from '@chakra-ui/react'
+import { useEffect } from 'react'
 import EthWallet from '../blockchain/eth-wallet'
 import PeraWallet from '../blockchain/pera-wallet'
 import MyAlgoWallet from '../blockchain/my-algo-wallet'
@@ -14,8 +13,8 @@ function Links() {
   return (
     <div className={styles.links_container}>
       <div className={styles.links_wrapper}>
-        <Link className={styles.link} href='/'><Button className={styles.button}>Home</Button></Link>
-        <Link className={styles.link} href='/about'><Button className={styles.button}>About</Button></Link>
+        <Link className={styles.link} href='/'>Home</Link>
+        <Link className={styles.link} href='/about'>About</Link>
       </div>
       <div className={styles.wallets}>
         <EthWallet />

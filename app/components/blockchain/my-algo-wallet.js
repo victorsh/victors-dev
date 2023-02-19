@@ -48,8 +48,8 @@ export default function MyAlgoWallet() {
   }, [])
 
   return (
-    <Button className={styles.button} onClick={() => connect()}>
-      <Image width={24} height={48} alt="MyAlgoWallet" src='/myalgo-logo.png' />
-    </Button>
+    <button className={styles.button} onClick={() => connect()}>
+      <img width={28} alt="MyAlgoWallet" src='/myalgo-full-logo-dark.svg' />
+    </button>
   )
 }

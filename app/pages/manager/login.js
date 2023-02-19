@@ -41,6 +41,13 @@ export default function Login() {
             <div>Enter Password</div>
             <input type='password' name='password' required />
           </label>
+          <label for="whois">
+            Who is?
+          </label>
+          <select id="whois" name="whois">
+            <option value="vic">Vic</option>
+            <option value="anna">Anna</option>
+          </select>
           <button type='submit'>Login</button>
           {errorMsg && <p>{errorMsg}</p>}
         </form>

@@ -21,7 +21,21 @@
 
 .link {
   background: transparent;
-  color: #000;
+  border: solid 1px white;
+  padding: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  height: 48px;
+  font-size: 0.4em;
+  border-radius: 5px;
+  color: #FFF;
+  display: flex;
+  align-items: center;
+}
+
+.link:hover {
+  background: #333;
+  cursor: pointer;
 }
 
 .wallets {
@@ -39,6 +53,19 @@
 }
 
 .button {
-  color: black;
+  color: #FFF;
+  background: transparent;
   margin: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: solid 1px white;
+  border-radius: 5px;
+  width: 48px;
+  height: 48px;
+}
+
+.button:hover {
+  background: #333;
+  cursor: pointer;
 }

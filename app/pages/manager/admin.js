@@ -8,7 +8,7 @@ export default function Admin() {
       <h1>{"Vic and Anna's Life Manager"}</h1>
       <div className={styles.admin_links}>
         <div className={styles.admin_link}><Link href="/manager/calendar">Calendar</Link></div>
-        <div className={styles.admin_link}><Link href="/manager/calendar">Groceries</Link></div>
+        <div className={styles.admin_link}><Link href="/manager/groceries">Groceries</Link></div>
       </div>
     </div>
   )

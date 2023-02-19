@@ -5,7 +5,7 @@ import styles from '@/styles/manager/Calendar.module.css'
 export default function Calendar(props) {
   const [currentTime, setCurrentTime] = useState(null)
   useEffect(() => {
-    let current_time = new Date(props.time_now)
+    let current_time = new Date(Date.now())
     setCurrentTime(current_time.toString())
   }, [])
   return (

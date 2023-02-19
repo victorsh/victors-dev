@@ -47,7 +47,7 @@ export default function Landing(props) {
         <ambientLight intensity={0.3} />
         <LightBulb />
         <VortexBoxes />
-        <Text3D position={[-3, 0, -15]} scale={[1, 1, 0.5]} color={'#a30303'} text="Victor's Dev"/>
+        <Text3D position={[-3, 0, -10]} scale={[1, 1, 0.5]} color={'#FFFFFF'} text="Victor's Dev"/>
         
         <OrbitControls />
         <EffectComposer>

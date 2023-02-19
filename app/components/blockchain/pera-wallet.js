@@ -38,8 +38,8 @@ export default function PeraWallet() {
     pera_reconnect_session()
   })
   return (
-    <Button className={styles.button} onClick={() => pera_connect_wallet()}>
-      <Image width={20} height={40} alt="PeraWallet" src='/pera-logomark-black.png' />
-    </Button>
+    <button className={styles.button} onClick={() => pera_connect_wallet()}>
+      <Image width={24} height={24} alt="PeraWallet" src='/pera-logomark-black.png' />
+    </button>
   )
 }
