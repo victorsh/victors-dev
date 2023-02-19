@@ -1,27 +1,12 @@
 // https://medium.com/@pdx.lucasm/canvas-with-react-js-32e133c05258
-import React, { useRef, useEffect } from 'react'
+import React from 'react'
+import useCanvas from './useCanvas'
 
 const Canvas2D = props => {
-  const { draw, ...rest } = props
-  const canvasRef = useRef(null)
+  const { draw, options, ...rest } = props
+  const { context, ...moreConfig } = options
+  const canvasRef = useCanvas(draw, {context})
 
-  useEffect(() => {
-    const canvas = canvasRef.current
-    const context = canvas.getContext('2d')
-    let frameCount = 0
-    let animationFrameId
-    const render = () => {
-      frameCount++
-      draw(context, frameCount)
-      animationFrameId = window.requestAnimationFrame(render)
-    }
-    render()
-
-    return () => {
-      window.cancelAnimationFrame(animationFrameId)
-    }
-    
-  }, [draw])
   return <canvas ref={canvasRef} {...rest}/>
 }
 
