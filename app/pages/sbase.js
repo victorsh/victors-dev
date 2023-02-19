@@ -5,27 +5,32 @@ import { url_select } from '@/utils/url_select'
 
 export default function Sbase() {
   const [items, setItems] = useState([])
-  const [itemData, setItemData] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
   const fetchItems = async () => {
-    const base_url = url_select()
+    setIsLoading(true)
     try {
       const data = await fetch(`/api/dbcall`, {
         method: 'GET'
       })
       const { items } = await data.json()
       setItems(items)
+      setIsLoading(false)
     } catch (error) {
+      setIsLoading(false)
       console.error(error)
     }
   }
 
   const insertItem = async () => {
+    setIsLoading(true)
     try {
       await fetch(`/api/dbcall`, {
         method: 'POST'
       })
       await fetchItems()
+      setIsLoading(false)
     } catch (error) {
+      setIsLoading(false)
       console.log(error)
     }
   }
@@ -46,6 +51,7 @@ export default function Sbase() {
         {displayItems()}
       </ul>
       <button onClick={insertItem}>Add Item</button>
+      {isLoading ? <div>Loading...</div> : ''}
     </div>
   )
 }
