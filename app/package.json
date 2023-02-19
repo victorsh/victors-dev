@@ -42,6 +42,7 @@
     "next-auth": "^4.18.8",
     "next-redux-wrapper": "^8.1.0",
     "next-swagger-doc": "^0.3.6",
+    "nextjs-cors": "^2.1.2",
     "nft.storage": "^7.0.0",
     "random-hex-color": "^1.0.1",
     "react": "18.2.0",

@@ -1,7 +1,13 @@
 import { supabase } from '@/utils/supabase'
+import NextCors from 'nextjs-cors'
 
 export default async function handler(req, res) {
-  console.log(req.method)
+  await NextCors(req, res, {
+    methods: ['GET', 'POST'],
+    origin: '*',
+    optionsSuccessStatus: 200
+  }) 
+
   if (req.method === 'GET') {
     try {
       const { data, error } = await supabase
