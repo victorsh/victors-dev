@@ -10,12 +10,8 @@ export default function Sbase() {
     const base_url = url_select()
     console.log(base_url)
     try {
-      const data = await fetch(`${base_url}/api/dbcall`, {
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Access-Control-Allow-Origin': '*'
-        }
+      const data = await fetch(`/api/dbcall`, {
+        method: 'GET'
       })
       const { items } = await data.json()
       setItems(items)
@@ -25,17 +21,6 @@ export default function Sbase() {
   }
 
   const insertItem = async () => {
-    // try {
-    //   const { data, error } = await supabase
-    //     .from("Item")
-    //     .insert([{
-    //       data: 'another sample'
-    //     }]).single()
-    //   if (error) throw error
-    //   await fetchItems()
-    // } catch (error) {
-    //   console.log(error)
-    // }
   }
 
   const displayItems = () => {

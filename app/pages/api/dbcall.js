@@ -28,9 +28,7 @@ export default async function handler(req, res) {
     } catch (error) {
       res.status(500).json({ error: error })
     }
-  }
-
-  if (req.method === 'POST') {
+  } else if (req.method === 'POST') {
     try {
       const { data, error } = await supabase
         .from("Item")
@@ -45,7 +43,7 @@ export default async function handler(req, res) {
     } catch (error) {
       res.status(500).json({ error: error })
     }
+  } else {
+    res.status(404).json({ message: 'not found'})
   }
-
-  res.status(404).json({ message: 'not found'})
 }
