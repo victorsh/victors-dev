@@ -85,6 +85,16 @@ export default function About(props) {
               to re-create the wheel and instead get to a finished product as quickly as possible.\
             "}
           </Text>
+          <br/>
+          <Text className={aboutStyle.text_box}>
+            {"Moving forward!! University was an exceptional experience. Computer Science was my major, if that wasn't already apparent.\
+              The classes I took, the people I met an interacted with lead to having a great time during college. I very much enjoyed the curriculum.\
+              Along with the usual set of classes e.g. Data Structures and Algorithms, Computer Engineering, Compiler Design, Operating Systems, ...\
+              I also enrolled in Computer Graphics, Distributed Systems and Data visualization. Each course lead to a greater understand of computers\
+              as a whole and each course solidified my choice in choosing to pursue Computer Science as a major. I loved the critical thinking around it\
+              all. The feeling of an idea clicking in my head was, and still is, insurmountable to most experiences in my life.\
+            "}
+          </Text>
         </Box>
         <Box maxW="lg" m="0 auto" className={aboutStyle.buffer_box}>
         </Box>
