@@ -103,20 +103,3 @@ export default function About(props) {
     </div>
   )
 }
-
-import prisma from '../lib/prisma'
-
-export const getStaticProps = async () => {
-  const feed = await prisma.post.findMany({
-    where: { published: true },
-    include: {
-      author: {
-        select: { name: true }
-      }
-    }
-  })
-  return {
-    props: { feed },
-    revalidate: 10
-  }
-}
