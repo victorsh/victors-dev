@@ -7,8 +7,8 @@ export default function Tasks(props) {
   return (
     <div className={styles.tasks_container}>
       <Header user={props.user} />
-      <h1>Tasks List</h1>
       <div className={styles.tasks_wrapper}>
+        <h1 className={styles.tasks_title}>Tasks List</h1>
         <ul>
           <li>task 1</li>
         </ul>

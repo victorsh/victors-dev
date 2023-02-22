@@ -2,11 +2,16 @@
   width: 100vw;
   height: 100vh;
   display:flex;
-  justify-content: center;
+  flex-direction: column;
   background: white;
 }
 
 .tasks_wrapper {
   width: 90%;
   background: #e0ffc7
+}
+
+.tasks_title {
+  width: 100%;
+  margin: 0 auto;
 }

@@ -17,7 +17,7 @@ export default function Message(props) {
     try {
       const messages = await fetch('/api/manager/message', {
         method: 'POST',
-        body: JSON.stringify({message: newMessage, user: 'vic'})
+        body: JSON.stringify({message: newMessage, user: props.user.whois})
       })
       setNewMessage('')
       await getMessages()
