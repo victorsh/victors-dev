@@ -1,8 +1,7 @@
-import { withSessionRoute } from '../../utils/session'
+import { withSessionRoute } from '@/utils/session'
 
 export default withSessionRoute(async (req, res) => {
   const { password, whois } = await req.body
-
   try {
     if (password === process.env.MANAGER_PASSWORD) {
       const user = { isLoggedIn: true, whois: whois }

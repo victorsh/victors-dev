@@ -2,9 +2,9 @@ import { useEffect, useState } from 'react'
 import { withSessionSsr } from "@/utils/session"
 import { formatDate } from '@/utils/utility'
 import Header from '@/components/manager/Header'
-import styles from "@/styles/manager/Admin.module.css"
+import styles from '@/styles/manager/Message.module.css'
 
-export default function Admin(props) {
+export default function Message(props) {
   const [messages, setMessages] = useState([])
   const [newMessage, setNewMessage] = useState('')
 
@@ -68,6 +68,7 @@ export default function Admin(props) {
   useEffect(() => {
     getMessages()
   }, [])
+
   return (
     <div className={styles.message_wrapper}>
       <Header user={props.user}/>

@@ -89,6 +89,7 @@
 html,
 body {
   margin: 0;
+  overflow-x: hidden;
 }
 
 body {
@@ -107,8 +108,8 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: light) {
   html {
-    color-scheme: dark;
+    color-scheme: light;
   }
 }

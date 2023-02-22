@@ -3,6 +3,8 @@
   width: 100vw;
   height: 100vh;
   margin: 0 auto;
+  display: flex;
+  justify-content: center;
 }
 
 .calendar_box {
@@ -54,4 +56,14 @@
   background: rgb(255, 225, 129);
   width: 40px;
   height: 40px;
+}
+
+.calendar_inputs {
+  display: flex;
+  justify-content: left;
+}
+
+.calendar_input {
+  display: flex;
+  justify-content: center;
 }

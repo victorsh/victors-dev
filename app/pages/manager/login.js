@@ -14,10 +14,11 @@ export default function Login() {
     e.preventDefault()
 
     const body = {
-      password: e.currentTarget.password.value
+      password: e.currentTarget.password.value,
+      whois: e.currentTarget.whois.value
     }
 
-    const userData = await fetch('/api/login', {
+    const userData = await fetch('/api/manager/login', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
