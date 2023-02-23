@@ -22,3 +22,14 @@ model Message {
   user        String
   createdAt   DateTime  @default(now()) @map(name: "created_at")
 }
+
+model Tasks {
+  id            Int       @id @default(autoincrement())
+  task          String
+  completed     Boolean   @default(false)
+  createdBy     String?
+  setTo         String?
+  completedBy   String?
+  completedAt   DateTime?
+  createdAt     DateTime  @default(now()) @map(name: "created_at")
+}

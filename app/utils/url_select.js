@@ -9,5 +9,5 @@ export const url_select = () => {
     url = "https://victorsdev.com"
   }
 
-  return url
+  return "http://127.0.0.1:3000"
 }

@@ -1,0 +1,16 @@
+.manager_selection {
+  display: flex;
+  width: 100%;
+}
+
+.manager_selection_button_selected {
+  width: 50%;
+  height: 3rem;
+  background: blue;
+}
+
+.manager_selection_button_unselected {
+  width: 50%;
+  height: 3rem;
+  background: red;
+}

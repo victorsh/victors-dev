@@ -4,15 +4,16 @@ import styles from '@/styles/manager/Login.module.css'
 
 export default function Login() {
   const { mutateUser } = useUser({
-    redirectTo: '/manager/admin',
+    redirectTo: '/manager/manager',
     redirectIfFound: true
   })
 
   const [errorMsg, setErrorMsg] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
 
   async function handleSubmit(e) {
     e.preventDefault()
-
+    setIsLoading(true)
     const body = {
       password: e.currentTarget.password.value,
       whois: e.currentTarget.whois.value
@@ -27,6 +28,7 @@ export default function Login() {
     const user = await userData.json()
 
     try {
+      setIsLoading(false)
       await mutateUser(user)
     } catch (error) {
       console.error('An unexpected error occurred:', error)
@@ -51,6 +53,7 @@ export default function Login() {
           </select>
           <button type='submit'>Login</button>
           {errorMsg && <p>{errorMsg}</p>}
+          {isLoading ? <p>Loading...</p> : ''}
         </form>
       </div>
     </div>
