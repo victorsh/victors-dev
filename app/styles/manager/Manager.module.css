@@ -3,14 +3,25 @@
   width: 100%;
 }
 
+.manager_selection button {
+  border: none;
+  border-top-left-radius: 5vh;
+  border-top-right-radius: 5vh;
+}
+
 .manager_selection_button_selected {
+  z-index: 1;
   width: 50%;
-  height: 3rem;
-  background: blue;
+  height: 2.85rem;
+  margin-top: 0.5%;
+  box-shadow: 2px 1px 5px;
+  background: rgb(22, 255, 1);
 }
 
 .manager_selection_button_unselected {
+  z-index: 0;
   width: 50%;
   height: 3rem;
-  background: red;
+  margin-top: 0.5%;
+  background: rgb(222, 222, 222);
 }

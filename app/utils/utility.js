@@ -7,4 +7,13 @@ const formatDate = (date) => {
   return new Date(nDate).toLocaleString()
 }
 
-export { formatDate }
+const checkJSON = (data) => {
+  try {
+    JSON.parse(data)
+  } catch (error) {
+    return false
+  }
+  return true
+}
+
+export { formatDate, checkJSON }

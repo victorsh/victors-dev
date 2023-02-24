@@ -1,6 +1,7 @@
 import { supabase } from '@/utils/supabase'
 import NextCors from 'nextjs-cors'
 import { withSessionRoute } from '@/utils/session'
+import { checkJSON } from '@/utils/utility'
 
 export default withSessionRoute(handler)
 
@@ -20,10 +21,10 @@ async function handler(req, res) {
 
   const session_user = req.session.user
 
-  if (!session_user || session_user.isLoggedIn === false) {
-    res.status(401).end();
-    return;
-  }
+  // if (!session_user || session_user.isLoggedIn === false) {
+  //   res.status(401).end();
+  //   return;
+  // }
 
   if (req.method === 'GET') {
     try {
@@ -48,12 +49,14 @@ async function handler(req, res) {
 
   if (req.method === 'POST') {
     try {
-      const { task, user } = JSON.parse(req.body)
+      const req_data = checkJSON(req.body) ? JSON.parse(req.body) : req.body
+      const { task, user, set_to } = req_data
       const { data, error } = await supabase
         .from("Tasks")
         .insert([{
           task: task,
-          user: user
+          createdBy: user,
+          setTo: set_to
         }]).single()
       if (error) {
         console.error(error)
@@ -61,14 +64,26 @@ async function handler(req, res) {
         return
       }
       res.status(201).json({ message: 'created'})
+      return
     } catch (error) {
+      console.error(error)
       res.status(500).json({ error: error })
       return
     }
   }
 
   if (req.method === 'PUT') {
-
+    const { taskId, completedBy, completed } = JSON.parse(req.body)
+    const { error } = await supabase
+      .from("Tasks")
+      .update({ completed: completed, completedBy: completedBy })
+      .eq('id', taskId)
+    if (error) {
+      console.error(error)
+      res.status(500).json({ error: error })
+      return
+    }
+    res.status(200).json({ message: 'updated'})
   }
 
   if (req.method === 'DELETE') {

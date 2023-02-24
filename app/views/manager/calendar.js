@@ -1,19 +1,37 @@
 import { useState, useEffect } from 'react'
+import Modal from 'react-modal'
 import styles from '@/styles/manager/Calendar.module.css'
 
-export default function Calendar(props) {
-  const [currentTime, setCurrentTime] = useState(null)
-  const [selectedYear, setSelectedYear] = useState(2023)
-  const [selectedMonth, setSelectedMonth] = useState(2)
-  useEffect(() => {
-    let current_time = new Date(Date.now())
-    setCurrentTime(current_time.toString())
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
 
+export default function Calendar(props) {
+  const [modalIsOpen, setModalIsOpen] = useState(false)
+  const [selectedYear, setSelectedYear] = useState(2023)
+  const [selectedMonth, setSelectedMonth] = useState(3)
+
+  useEffect(() => {
     let mDate = new Date()
     let pstDate = mDate.toLocaleString("en-US", {
       timeZone: "America/Los_Angeles"
     })
   }, [])
+
+  const openModal = () => {
+    setModalIsOpen(true)
+  }
+
+  const closeModal = () => {
+    setModalIsOpen(false)
+  }
 
   const changeMonth = (e) => {
     e.preventDefault()
@@ -30,18 +48,44 @@ export default function Calendar(props) {
   }
 
   const calendar_loop = (year, month) => {
+    let prev_month_year = year
+    let post_month_year = year
+    if (month - 2 < 0) {
+      prev_month_year = year - 1
+    }
+    if (month > 11) {
+      post_month_year = year + 1
+    }
+
+    console.log(prev_month_year, year, post_month_year)
+
+    const current_month = month
+    const prev_month = month - 1 < 1 ? 12 : month - 1
+    const next_month = month > 12 ? 1 : month + 1
+    console.log(month, current_month, prev_month, next_month)
+
+
+
     const days = new Date(year, month, 0).getDate()
-    const first_week_day = new Date(year, month - 1, 1).getDay()
-    const last_week_day = new Date(year, month - 1, days).getDay()
-    // console.log(days, first_week_day, last_week_day)
+    const first_week_day = new Date(year, month, 1).getDay()
+    const last_month_days = new Date(year, prev_month+1, 0).getDate()
+
 
     let pl_days = []
 
-    for (let i = 0; i < first_week_day; i++) {
-      pl_days.push(<div className={styles.calendar_box_item} key={new Date(selectedYear, selectedMonth, -1*i)} onClick={onDayClick}>{0}</div>)
+    for (let i = last_month_days - first_week_day; i < last_month_days; i++) {
+      pl_days.push(
+        <div className={styles.calendar_box_item_prev} key={new Date(prev_month_year, prev_month, i + 1)} onClick={openModal}>
+          <div>{i + 1}</div>
+        </div>
+      )
     }
     for (let i = 1; i < days + 1; i++) {
-      pl_days.push(<div className={styles.calendar_box_item} key={new Date(selectedYear, selectedMonth, i)}>{i}</div>)
+      pl_days.push(
+        <div className={styles.calendar_box_item} key={new Date(year, current_month, i)}  onClick={openModal}>
+          <div className={styles.calendar_date_day}>{i}</div>
+        </div>
+      )
     }
 
     let rows = []
@@ -50,12 +94,24 @@ export default function Calendar(props) {
     let i = 0
     for (; i < pl_days.length; i++) {
       if (i % 7 === 0 && i !== 0) {
-        rows.push(<div className={styles.calendar_box_row} key={i}>{cells}</div>)
+        rows.push(
+          <div className={styles.calendar_box_row} key={i}>
+            {cells}
+          </div>
+        )
         cells = []
       }
       cells.push(pl_days[i])
     }
     
+    const remaining_days = 7 - cells.length
+    for (let j = 0; j < remaining_days; j++) {
+      cells.push(
+        <div className={styles.calendar_box_item_prev} key={new Date(post_month_year, next_month, j + 1)} onClick={openModal}>
+          <div>{j + 1}</div>
+        </div>
+      )
+    }
     rows.push(<div className={styles.calendar_box_row} key={i}>{cells}</div>)
     return rows
   }
@@ -63,7 +119,47 @@ export default function Calendar(props) {
   return (
     <div className={styles.calendar_wrapper}>
       <div className={styles.calendar_container}>
+        
         <h1>Events Calendar</h1>
+
+        {modalIsOpen ? 
+          <div className={styles.modal_wrapper}>
+            <div className={styles.modal_content}>
+
+              <div className={styles.modal_header}>
+                <div className={styles.modal_title}>Create Event</div>
+                <button className={styles.modal_close} onClick={closeModal}>X</button>
+              </div>
+              
+              <div className={styles.modal_create}>
+              
+                <div className={styles.modal_event_container}>
+                  <div className={styles.modal_event_label}>Event Label</div>
+                  <input className={styles.modal_event_input} type='text' />
+                </div>
+              
+                <div className={styles.modal_datetime_input}>
+                  <div>
+                    <div className={styles.modal_event_label}>Start Date</div>
+                    <input className={styles.modal_date_input} type='date' value="02-28-2023"/>
+                    <input className={styles.modal_time_input} type='time' value="18:00"/>
+                  </div>
+                  <div>
+                    <div className={styles.modal_event_label}>End Date</div>
+                    <input className={styles.modal_date_input} type='date' value="03-01-2023"/>
+                    <input className={styles.modal_time_input} type='time' value="07:00"/>
+                  </div>
+                </div>
+              
+                <div className={styles.modal_create_submit_container}>
+                  <button className={styles.modal_create_submit}>Create</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        : ''}
+
+        {/* Calendar date input */}
         <div className={styles.calendar_inputs}>
           <div className={styles.calendar_input}>
             <div>Set Year:</div>
@@ -74,6 +170,7 @@ export default function Calendar(props) {
             <input type="number" id="month-select" name="month-select" step="0" min="1" max="12" value={selectedMonth} onChange={changeMonth} />
           </div>
         </div>
+        
         <div className={styles.clendar_box}>
           {calendar_loop(selectedYear, selectedMonth)}
         </div>

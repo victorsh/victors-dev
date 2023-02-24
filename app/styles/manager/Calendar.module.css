@@ -7,6 +7,10 @@
   justify-content: center;
 }
 
+.calendar_wrapper h1 {
+  text-align: center;
+}
+
 .calendar_box {
   display: flex;
   justify-content: center;
@@ -14,7 +18,7 @@
 }
 
 .calendar_container {
-  width: 350px;
+  width: 100%;
 }
 
 .calendar_box_row_day {
@@ -33,17 +37,24 @@
 }
 
 .calendar_box_item {
-  margin: 5px;
-  background: rgb(180, 180, 180);
-  width: 40px;
-  height: 40px;
+  margin: 0.1%;
+  background: rgb(160, 160, 160);
+  border: 1px solid #333;
+  width: 14%;
+  height: 6rem;
 }
 
 .calendar_box_item_prev {
-  margin: 5px;
-  background: rgb(224, 224, 224);
-  width: 40px;
-  height: 40px;
+  margin: 0.1%;
+  background: rgb(160, 160, 160);
+  border: 1px solid #333;
+  width: 14%;
+  height: 6rem;
+  opacity: 0.3;
+}
+
+.calendar_date_day {
+  padding: 1%;
 }
 
 .calendar_box_item:hover {
@@ -66,4 +77,122 @@
 .calendar_input {
   display: flex;
   justify-content: center;
+}
+
+.calendar_input input {
+  border: solid 2px #57caff;
+  border-radius: 5px;
+  font-size: 2rem;
+  text-align: right;
+  width: 80%;
+  padding: none;
+  margin: 0;
+}
+
+.modal_wrapper {
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal_content {
+  position: absolute;
+  width: 50vw;
+  height: 50vh;
+  margin: 0 auto;
+  border: solid 2px black;
+  background: white;
+}
+
+.modal_header {
+  width: 100%;
+  height: 5vh;
+  display: flex;
+}
+
+.modal_title {
+  text-align: center;
+  width: 90%;
+  font-size: 2rem;
+  border-bottom: 2px solid #333;
+}
+
+.modal_close {
+  border: None;
+  border-bottom: 2px solid #333;
+  border-left: 2px solid #333;
+  width: 10%;
+  cursor: pointer;
+  background: rgb(255, 77, 77);
+}
+
+.modal_close:hover {
+  background:red;
+}
+
+.modal_create {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.modal_event_label {
+  padding: 1%;
+}
+
+.modal_event_container {
+  width: 80%;
+  margin: 0 auto;
+}
+
+.modal_event_input {
+  width: 100%;
+  padding: 1%;
+}
+
+.modal_datetime_input {
+  display: flex;
+  justify-content: space-around;
+}
+
+.modal_date_input {
+  padding: 1%;
+  margin: 1%;
+}
+
+.modal_time_input {
+  padding: 1%;
+  margin: 1%;
+  width: 50%
+}
+
+.modal_create_submit_container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  padding: 1%;
+}
+
+.modal_create_submit {
+  border: none;
+  border: 2px solid #555;
+  width: 20%;
+  height: 6vh;
+  cursor: pointer;
+  box-shadow: 4px 4px #ccc;
+  transition: box-shadow 0.2s ease-out;
+  background: rgb(9, 255, 0);
+}
+
+.modal_create_submit:hover {
+  background:rgb(7, 191, 0);
+  box-shadow: none;
+  transition: box-shadow 0.2s ease-in;
 }
