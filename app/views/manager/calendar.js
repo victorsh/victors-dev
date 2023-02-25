@@ -16,8 +16,8 @@ const customStyles = {
 export default function Calendar(props) {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [eventName, setEventName] = useState('Some event')
-  const [eventStartDate, setEventStartDate] = useState('01-01-2023')
-  const [eventEndDate, setEventEndDate] = useState('01-02-2023')
+  const [eventStartDate, setEventStartDate] = useState('2023-01-01')
+  const [eventEndDate, setEventEndDate] = useState('2023-01-03')
   const [eventStartTime, setEventStartTime] = useState('01:00')
   const [eventEndTime, setEventEndTime] = useState('20:00')
 
@@ -31,6 +31,7 @@ export default function Calendar(props) {
     })
   }, [])
 
+  // Modal Functions
   const openModal = (e) => {
     e.preventDefault()
     console.log(new Date(e.target.getAttribute('data-index')).toISOString().replace(/T.*/,'').split('-').reverse().join('-'))
@@ -41,6 +42,33 @@ export default function Calendar(props) {
     setModalIsOpen(false)
   }
 
+  // Event Functions
+  const eventNameOnChange = (e) => {
+    setEventName(e.target.getAttribute('data-index'))
+  }
+
+  const eventStartDateOnChange = (e) => {
+    setEventStartDate(e.target.value)
+  }
+
+  const eventStartTimeOnChange = (e) => {
+    setEventStartTime(e.target.value)
+  }
+
+  const eventEndDateOnChange = (e) => {
+    setEventEndDate(e.target.value)
+  }
+
+  const eventEndTimeOnChange = (e) => {
+    setEventEndTime(e.target.value)
+  }
+
+  const submitEvent = () => {
+    console.log(eventStartDate, eventStartTime, eventEndDate, eventEndTime)
+    setModalIsOpen(false)
+  }
+
+  // Calendar Functions
   const changeMonth = (e) => {
     e.preventDefault()
     setSelectedMonth(e.target.value)
@@ -140,24 +168,24 @@ export default function Calendar(props) {
               
                 <div className={styles.modal_event_container}>
                   <div className={styles.modal_event_label}>Event Label</div>
-                  <input className={styles.modal_event_input} type='text'  />
+                  <input className={styles.modal_event_input} type='text' value={eventName} onChange={eventNameOnChange} />
                 </div>
               
                 <div className={styles.modal_datetime_input}>
                   <div>
                     <div className={styles.modal_event_label}>Start Date</div>
-                    <input className={styles.modal_date_input} type='date' value="02-28-2023"/>
-                    <input className={styles.modal_time_input} type='time' value="18:00"/>
+                    <input className={styles.modal_date_input} type='date' value={eventStartDate} onChange={eventStartDateOnChange} />
+                    <input className={styles.modal_time_input} type='time' value={eventStartTime} onChange={eventStartTimeOnChange} />
                   </div>
                   <div>
                     <div className={styles.modal_event_label}>End Date</div>
-                    <input className={styles.modal_date_input} type='date' value="03-01-2023"/>
-                    <input className={styles.modal_time_input} type='time' value="07:00"/>
+                    <input className={styles.modal_date_input} type='date' value={eventEndDate} onChange={eventEndDateOnChange} />
+                    <input className={styles.modal_time_input} type='time' value={eventEndTime} onChange={eventEndTimeOnChange} />
                   </div>
                 </div>
               
                 <div className={styles.modal_create_submit_container}>
-                  <button className={styles.modal_create_submit}>Create</button>
+                  <button className={styles.modal_create_submit} onClick={submitEvent}>Create</button>
                 </div>
               </div>
             </div>
