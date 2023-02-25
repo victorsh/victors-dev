@@ -15,6 +15,12 @@ const customStyles = {
 
 export default function Calendar(props) {
   const [modalIsOpen, setModalIsOpen] = useState(false)
+  const [eventName, setEventName] = useState('Some event')
+  const [eventStartDate, setEventStartDate] = useState('01-01-2023')
+  const [eventEndDate, setEventEndDate] = useState('01-02-2023')
+  const [eventStartTime, setEventStartTime] = useState('01:00')
+  const [eventEndTime, setEventEndTime] = useState('20:00')
+
   const [selectedYear, setSelectedYear] = useState(2023)
   const [selectedMonth, setSelectedMonth] = useState(3)
 
@@ -25,7 +31,9 @@ export default function Calendar(props) {
     })
   }, [])
 
-  const openModal = () => {
+  const openModal = (e) => {
+    e.preventDefault()
+    console.log(new Date(e.target.getAttribute('data-index')).toISOString().replace(/T.*/,'').split('-').reverse().join('-'))
     setModalIsOpen(true)
   }
 
@@ -43,11 +51,10 @@ export default function Calendar(props) {
     setSelectedYear(e.target.value)
   }
 
-  const onDayClick = (e) => {
-    e.preventDefault()
-  }
-
   const calendar_loop = (year, month) => {
+    month = Number(month)
+    const current_month = Number(month)
+
     let prev_month_year = year
     let post_month_year = year
     if (month - 2 < 0) {
@@ -57,32 +64,30 @@ export default function Calendar(props) {
       post_month_year = year + 1
     }
 
-    console.log(prev_month_year, year, post_month_year)
-
-    const current_month = month
     const prev_month = month - 1 < 1 ? 12 : month - 1
-    const next_month = month > 12 ? 1 : month + 1
-    console.log(month, current_month, prev_month, next_month)
-
-
+    const next_month = month > 11 ? 1 : month + 1
 
     const days = new Date(year, month, 0).getDate()
-    const first_week_day = new Date(year, month, 1).getDay()
-    const last_month_days = new Date(year, prev_month+1, 0).getDate()
-
+    const first_week_day = new Date(year, month - 1, 1).getDay()
+    const last_month_days = new Date(year, prev_month, 0).getDate()
 
     let pl_days = []
 
     for (let i = last_month_days - first_week_day; i < last_month_days; i++) {
       pl_days.push(
-        <div className={styles.calendar_box_item_prev} key={new Date(prev_month_year, prev_month, i + 1)} onClick={openModal}>
+        <div
+          className={styles.calendar_box_item_prev}
+          key={new Date(prev_month_year, prev_month - 1, i + 1)}
+          data-index={new Date(year, current_month - 1, i)}
+          onClick={openModal}
+        >
           <div>{i + 1}</div>
         </div>
       )
     }
     for (let i = 1; i < days + 1; i++) {
       pl_days.push(
-        <div className={styles.calendar_box_item} key={new Date(year, current_month, i)}  onClick={openModal}>
+        <div className={styles.calendar_box_item} key={new Date(year, current_month - 1, i)} data-index={new Date(year, current_month - 1, i)} onClick={openModal}>
           <div className={styles.calendar_date_day}>{i}</div>
         </div>
       )
@@ -107,7 +112,7 @@ export default function Calendar(props) {
     const remaining_days = 7 - cells.length
     for (let j = 0; j < remaining_days; j++) {
       cells.push(
-        <div className={styles.calendar_box_item_prev} key={new Date(post_month_year, next_month, j + 1)} onClick={openModal}>
+        <div className={styles.calendar_box_item_prev} key={new Date(post_month_year, next_month - 1, j + 1)} data-index={new Date(year, current_month - 1, i)} onClick={openModal}>
           <div>{j + 1}</div>
         </div>
       )
@@ -135,7 +140,7 @@ export default function Calendar(props) {
               
                 <div className={styles.modal_event_container}>
                   <div className={styles.modal_event_label}>Event Label</div>
-                  <input className={styles.modal_event_input} type='text' />
+                  <input className={styles.modal_event_input} type='text'  />
                 </div>
               
                 <div className={styles.modal_datetime_input}>
