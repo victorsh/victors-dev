@@ -40,16 +40,16 @@
   margin: 0.1%;
   background: rgb(160, 160, 160);
   border: 1px solid #333;
-  width: 14%;
-  height: 6rem;
+  width: 14vw;
+  height: 13vh;
 }
 
 .calendar_box_item_prev {
   margin: 0.1%;
   background: rgb(160, 160, 160);
   border: 1px solid #333;
-  width: 14%;
-  height: 6rem;
+  width: 14vw;
+  height: 13vh;
   opacity: 0.3;
 }
 
@@ -65,8 +65,8 @@
 .calendar_box_item_day {
   margin: 5px;
   background: rgb(255, 225, 129);
-  width: 40px;
-  height: 40px;
+  width: 4.5vw;
+  height: 4.5vh;
 }
 
 .calendar_inputs {
@@ -112,14 +112,16 @@
 
 .modal_header {
   width: 100%;
-  height: 5vh;
+  height: 4.5vh;
   display: flex;
+  align-items: center;
 }
 
 .modal_title {
   text-align: center;
   width: 90%;
-  font-size: 2rem;
+  height: 4.5vh;
+  font-size: 4.5rem;
   border-bottom: 2px solid #333;
 }
 
@@ -128,6 +130,7 @@
   border-bottom: 2px solid #333;
   border-left: 2px solid #333;
   width: 10%;
+  height: 4.5vh;
   cursor: pointer;
   background: rgb(255, 77, 77);
 }
@@ -141,6 +144,7 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .modal_event_label {
@@ -154,7 +158,13 @@
 
 .modal_event_input {
   width: 100%;
+  height: 4.5vh;
+  font-size: 4.5vh;
   padding: 1%;
+  border: none;
+  border-top-left-radius: 2vh;
+  border-top-right-radius: 2vh;
+  border: 0.25vh solid black;
 }
 
 .modal_datetime_input {
@@ -184,7 +194,7 @@
   border: none;
   border: 2px solid #555;
   width: 20%;
-  height: 6vh;
+  height: 4.5vh;
   cursor: pointer;
   box-shadow: 4px 4px #ccc;
   transition: box-shadow 0.2s ease-out;

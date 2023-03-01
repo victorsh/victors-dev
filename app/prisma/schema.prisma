@@ -26,10 +26,26 @@ model Message {
 model Tasks {
   id            Int       @id @default(autoincrement())
   task          String
-  completed     Boolean   @default(false)
   createdBy     String?
-  setTo         String?
+  createdFor    String?
+  createdAt     DateTime  @default(now()) @map(name: "created_at")
+  completed     Boolean   @default(false)
   completedBy   String?
   completedAt   DateTime?
-  createdAt     DateTime  @default(now()) @map(name: "created_at")
+}
+
+model CalendarEvent {
+  id              Int         @id @default(autoincrement())
+  title           String
+  color           String
+  days            DateTime
+  beginStartTime  DateTime?
+  beginStopTime   DateTime?
+  endStartTime    DateTime?
+  endStopTime     DateTime?
+  priority        Int?
+  createdAt       DateTime
+  createdBy       String
+  createdFor      String?
+  password        String?
 }

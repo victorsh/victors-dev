@@ -5,8 +5,8 @@
 
 .manager_selection button {
   border: none;
-  border-top-left-radius: 5vh;
-  border-top-right-radius: 5vh;
+  border-top-left-radius: 2vh;
+  border-top-right-radius: 2vh;
 }
 
 .manager_selection_button_selected {
@@ -15,7 +15,7 @@
   height: 2.85rem;
   margin-top: 0.5%;
   box-shadow: 2px 1px 5px;
-  background: rgb(22, 255, 1);
+  background: rgb(30, 176, 255);
 }
 
 .manager_selection_button_unselected {

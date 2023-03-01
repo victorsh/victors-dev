@@ -19,8 +19,10 @@ export default function Manager(props) {
   return (
     <div>
       <div className={styles.manager_selection}>
-        <button className={viewSelect === 0 ? styles.manager_selection_button_selected : styles.manager_selection_button_unselected} data-index={0} onClick={selectView}>Calendar</button>
-        <button className={viewSelect === 1 ? styles.manager_selection_button_selected : styles.manager_selection_button_unselected} data-index={1} onClick={selectView}>Tasks</button>
+        <button className={
+          viewSelect === 0 ? styles.manager_selection_button_selected : styles.manager_selection_button_unselected} data-index={0} onClick={selectView}>Calendar</button>
+        <button className={
+          viewSelect === 1 ? styles.manager_selection_button_selected : styles.manager_selection_button_unselected} data-index={1} onClick={selectView}>Tasks</button>
       </div>
       {viewSelect === 0 ?
         <Calendar />
