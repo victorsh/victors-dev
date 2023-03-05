@@ -61,7 +61,7 @@
   "devDependencies": {
     "@nomicfoundation/hardhat-toolbox": "^2.0.1",
     "buffer": "^6.0.3",
-    "prisma": "^4.8.1",
+    "prisma": "^4.11.0",
     "webpack": "^5.75.0"
   }
 }

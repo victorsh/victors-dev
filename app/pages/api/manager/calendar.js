@@ -28,10 +28,22 @@ async function handler(req, res) {
 
   if (req.method === 'GET') {
     try {
-      const { data, error } = await supabase
-        .from("Tasks")
-        .select("*")
-        .order('created_at', { ascending: true })
+      const { id } = req.query
+      let resp
+      if (typeof id === 'undefined') {
+        console.log('yes')
+        resp = await supabase
+          .from("CalendarEvent")
+          .select("*")
+          .order('created_at', { ascending: true })
+      } else {
+        resp = await supabase
+          .from("CalendarEvent")
+          .select("*")
+          .match({ id: id })
+      }
+
+      const { data, error } = resp
 
       if (error) {
         console.error(error)
@@ -39,7 +51,7 @@ async function handler(req, res) {
         return
       }
 
-      res.status(200).json({ messages: data })
+      res.status(200).json({ events: data })
       return
     } catch (error) {
       res.status(500).json({ error: error })
@@ -50,16 +62,28 @@ async function handler(req, res) {
   if (req.method === 'POST') {
     try {
       const req_data = checkJSON(req.body) ? JSON.parse(req.body) : req.body
-      const { task, created_by, created_for, priority, complete_by } = req_data
+      const {
+        title,
+        color,
+        start_time,
+        stop_time,
+        priority,
+        created_by,
+        created_for,
+        password
+      } = req_data
 
       const { data, error } = await supabase
-        .from("Tasks")
+        .from("CalendarEvent")
         .insert([{
-          task: task,
+          title: title,
+          color: color,
+          startTime: start_time,
+          stopTime: stop_time,
+          priority: priority,
           createdBy: created_by,
           createdFor: created_for,
-          priority: priority,
-          completeBy: complete_by
+          password: password
         }]).single()
       if (error) {
         console.error(error)
@@ -81,7 +105,7 @@ async function handler(req, res) {
     const { id, created_for, priority, completed_by, completed } = req_data
 
     const { error } = await supabase
-      .from("Tasks")
+      .from("CalendarEvent")
       .update({
         completed: completed,
         completedBy: completed_by,
@@ -102,7 +126,7 @@ async function handler(req, res) {
       const req_data = checkJSON(req.body) ? JSON.parse(req.body) : req.body
       const { id } = req_data
       const { error } = await supabase
-        .from("Tasks")
+        .from("CalendarEvent")
         .delete()
         .match({id: id})
       if (error) {

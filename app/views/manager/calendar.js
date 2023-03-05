@@ -29,7 +29,33 @@ export default function Calendar(props) {
     let pstDate = mDate.toLocaleString("en-US", {
       timeZone: "America/Los_Angeles"
     })
+    getEvents()
+    getEventTypes()
   }, [])
+
+  const getEvents = async () => {
+    try {
+      let days = await fetch('/api/manager/calendars', {
+        method: 'GET',
+      })
+      days = await days.json()
+      console.log(days)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+
+  const getEventTypes = async () => {
+    try {
+      let events = await fetch('api/manager/calendar', {
+        method: 'GET'
+      })
+      events = await events.json()
+      console.log(events)
+    } catch (error) {
+      console.error(error)
+    }
+  }
 
   // Modal Functions
   const openModal = (e) => {
@@ -47,16 +73,8 @@ export default function Calendar(props) {
     setEventName(e.target.getAttribute('data-index'))
   }
 
-  const eventStartDateOnChange = (e) => {
-    setEventStartDate(e.target.value)
-  }
-
   const eventStartTimeOnChange = (e) => {
     setEventStartTime(e.target.value)
-  }
-
-  const eventEndDateOnChange = (e) => {
-    setEventEndDate(e.target.value)
   }
 
   const eventEndTimeOnChange = (e) => {
@@ -149,48 +167,54 @@ export default function Calendar(props) {
     return rows
   }
 
+  const event_modal = () => (
+    <div className={styles.modal_wrapper}>
+      <div className={styles.modal_content}>
+
+        <div className={styles.modal_header}>
+          <div className={styles.modal_title}>Manage Event</div>
+          <button className={styles.modal_close} onClick={closeModal}>X</button>
+        </div>
+        
+        <div className={styles.modal_create}>
+        
+          <div className={styles.modal_event_container}>
+            <div className={styles.modal_event_label}>Event Label</div>
+            <input className={styles.modal_event_input} type='text' value={eventName} onChange={eventNameOnChange} />
+          </div>
+        
+          <div className={styles.modal_datetime_input}>
+            <div>
+              <div className={styles.modal_event_label}>Start Time</div>
+              <input className={styles.modal_time_input} type='time' value={eventStartTime} onChange={eventStartTimeOnChange} />
+            </div>
+            <div>
+              <div className={styles.modal_event_label}>Stop Time</div>
+              <input className={styles.modal_time_input} type='time' value={eventEndTime} onChange={eventEndTimeOnChange} />
+            </div>
+          </div>
+
+          <div className={styles.modal_details_input}>
+            <div className={styles.modal_user_select_title}>Event For</div>
+            <select name='users' id='users'>
+              <option value="vic">vic</option>
+              <option value="anna">anna</option>
+            </select>
+          </div>
+        
+          <div className={styles.modal_create_submit_container}>
+            <button className={styles.modal_create_submit} onClick={submitEvent}>Create</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+
   return (
     <div className={styles.calendar_wrapper}>
       <div className={styles.calendar_container}>
         
         <h1>Events Calendar</h1>
-
-        {modalIsOpen ? 
-          <div className={styles.modal_wrapper}>
-            <div className={styles.modal_content}>
-
-              <div className={styles.modal_header}>
-                <div className={styles.modal_title}>Create Event</div>
-                <button className={styles.modal_close} onClick={closeModal}>X</button>
-              </div>
-              
-              <div className={styles.modal_create}>
-              
-                <div className={styles.modal_event_container}>
-                  <div className={styles.modal_event_label}>Event Label</div>
-                  <input className={styles.modal_event_input} type='text' value={eventName} onChange={eventNameOnChange} />
-                </div>
-              
-                <div className={styles.modal_datetime_input}>
-                  <div>
-                    <div className={styles.modal_event_label}>Start Date</div>
-                    <input className={styles.modal_date_input} type='date' value={eventStartDate} onChange={eventStartDateOnChange} />
-                    <input className={styles.modal_time_input} type='time' value={eventStartTime} onChange={eventStartTimeOnChange} />
-                  </div>
-                  <div>
-                    <div className={styles.modal_event_label}>End Date</div>
-                    <input className={styles.modal_date_input} type='date' value={eventEndDate} onChange={eventEndDateOnChange} />
-                    <input className={styles.modal_time_input} type='time' value={eventEndTime} onChange={eventEndTimeOnChange} />
-                  </div>
-                </div>
-              
-                <div className={styles.modal_create_submit_container}>
-                  <button className={styles.modal_create_submit} onClick={submitEvent}>Create</button>
-                </div>
-              </div>
-            </div>
-          </div>
-        : ''}
 
         {/* Calendar date input */}
         <div className={styles.calendar_inputs}>
@@ -207,6 +231,9 @@ export default function Calendar(props) {
         <div className={styles.clendar_box}>
           {calendar_loop(selectedYear, selectedMonth)}
         </div>
+
+        {modalIsOpen ? event_modal() : ''}
+
       </div>
     </div>
   )
