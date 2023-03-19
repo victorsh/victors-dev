@@ -1,9 +1,7 @@
 import { useEffect } from 'react'
 import EthWallet from '../blockchain/eth-wallet'
 import PeraWallet from '../blockchain/pera-wallet'
-import MyAlgoWallet from '../blockchain/my-algo-wallet'
 import Link from 'next/link'
-import Image from 'next/image'
 import styles from '../../styles/Links.module.css'
 
 function Links() {
@@ -19,7 +17,6 @@ function Links() {
       <div className={styles.wallets}>
         <EthWallet />
         <PeraWallet />
-        <MyAlgoWallet />
       </div>
     </div>
   )

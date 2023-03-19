@@ -15,14 +15,28 @@ export default function Home() {
   const toast = useToast()
   useEffect(() => {
     console.log(process.env.NODE_ENV)
+    showToast()
+  }, [])
+
+  const acceptAdsense = () => {
+    console.log('run ads')
+  }
+
+  const showToast = () => {
+    console.log('showing toast')
     toast({
-      title: 'Hello!',
-      description: 'Welcome to my site.',
+      title: 'Cookies',
+      description: 'This site stores cookies to display ads.',
       status: 'success',
-      duration: 9000,
-      isClosable: true
+      // duration: 9000,
+      isClosable: true,
+      // render: () => (
+      //   <Button onClick={acceptAdsense} colorScheme="green">
+      //     Ok
+      //   </Button>
+      // )
     })
-  })
+  }
 
   return (
     <div className={startStyles.scene}>

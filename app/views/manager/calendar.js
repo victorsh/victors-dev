@@ -1,6 +1,8 @@
-import { useState, useEffect } from 'react'
-import Modal from 'react-modal'
+import { useState, useEffect, useRef } from 'react'
+import { useSelector, useDispatch } from 'react-redux'
+import { getEvents, getEventTypes } from '@/lib/api/calendar'
 import styles from '@/styles/manager/Calendar.module.css'
+import { SET_CALENDAR_EVENTS } from '@/store/reducers/calendar-events';
 
 const customStyles = {
   content: {
@@ -16,46 +18,35 @@ const customStyles = {
 export default function Calendar(props) {
   const [modalIsOpen, setModalIsOpen] = useState(false)
   const [eventName, setEventName] = useState('Some event')
-  const [eventStartDate, setEventStartDate] = useState('2023-01-01')
-  const [eventEndDate, setEventEndDate] = useState('2023-01-03')
   const [eventStartTime, setEventStartTime] = useState('01:00')
   const [eventEndTime, setEventEndTime] = useState('20:00')
+  const [priority, setPriority] = useState(0)
 
   const [selectedYear, setSelectedYear] = useState(2023)
   const [selectedMonth, setSelectedMonth] = useState(3)
+
+  const dispatch = useDispatch()
+
+  const updateCalendarEvents = async () => {
+    const cEvents = await getEvents()
+    console.log(cEvents)
+    dispatch(SET_CALENDAR_EVENTS(cEvents))
+  }
+
+  async function getCalendarEvents() {
+    const { calendarEvents } = useSelector((state) => state.calendarEvents)
+    console.log(calendarEvents)
+  }
+  // getCalendarEvents()
 
   useEffect(() => {
     let mDate = new Date()
     let pstDate = mDate.toLocaleString("en-US", {
       timeZone: "America/Los_Angeles"
     })
-    getEvents()
+    updateCalendarEvents()
     getEventTypes()
   }, [])
-
-  const getEvents = async () => {
-    try {
-      let days = await fetch('/api/manager/calendars', {
-        method: 'GET',
-      })
-      days = await days.json()
-      console.log(days)
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
-  const getEventTypes = async () => {
-    try {
-      let events = await fetch('api/manager/calendar', {
-        method: 'GET'
-      })
-      events = await events.json()
-      console.log(events)
-    } catch (error) {
-      console.error(error)
-    }
-  }
 
   // Modal Functions
   const openModal = (e) => {
@@ -84,6 +75,10 @@ export default function Calendar(props) {
   const submitEvent = () => {
     console.log(eventStartDate, eventStartTime, eventEndDate, eventEndTime)
     setModalIsOpen(false)
+  }
+
+  const changePriority = (e) => {
+    setPriority(e.target.value)
   }
 
   // Calendar Functions
@@ -200,6 +195,9 @@ export default function Calendar(props) {
               <option value="vic">vic</option>
               <option value="anna">anna</option>
             </select>
+
+            <div className={styles.modal_user_select_title}>priority</div>
+            <input type='number' id='priority' name='priority' step='1' min='0' max='5' value={priority} onChange={changePriority} />
           </div>
         
           <div className={styles.modal_create_submit_container}>

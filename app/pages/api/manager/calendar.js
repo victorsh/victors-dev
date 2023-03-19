@@ -31,7 +31,6 @@ async function handler(req, res) {
       const { id } = req.query
       let resp
       if (typeof id === 'undefined') {
-        console.log('yes')
         resp = await supabase
           .from("CalendarEvent")
           .select("*")
