@@ -15,7 +15,7 @@ export default function PeraWallet() {
         setAccountAddress(accounts[0]);
       }
     })
-    .catch((e) => console.log(e));
+    .catch((e) => { /* console.log(e) */ });
   }
   
   const pera_connect_wallet = async () => {

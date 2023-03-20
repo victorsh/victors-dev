@@ -1,7 +1,5 @@
 import React from 'react'
 
-import randomHexColor from 'random-hex-color'
-
 import { Canvas } from '@react-three/fiber'
 import { Stats } from '@react-three/drei'
 import { EffectComposer, DepthOfField, Bloom, Noise, Vignette } from '@react-three/postprocessing'
@@ -47,7 +45,7 @@ export default function Landing(props) {
         <ambientLight intensity={0.3} />
         <LightBulb />
         <VortexBoxes />
-        <Text3D position={[-3, 0, -10]} scale={[1, 1, 0.5]} color={'#FFFFFF'} text="Victor's Dev"/>
+        <Text3D position={[-3, 0, -10]} scale={[1, 1, 0.5]} color={props.nameColor} text="Victor's Dev"/>
         
         <OrbitControls />
         <EffectComposer>
