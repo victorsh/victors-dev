@@ -6,7 +6,7 @@ export default function GoogleAdsContainer ({ client, slot }) {
     (window.adsbygoogle = window.adsbygoogle || []).push({})
   }, [])
 
-  const AdLable = styled.span`
+  const AdLabel = styled.span`
     font-size: 12px;
   `
 
@@ -16,7 +16,6 @@ export default function GoogleAdsContainer ({ client, slot }) {
     >
       <AdLabel>Advertisement</AdLabel>
       <ins
-        className='adsbygoogle'
         style={{ display: 'block' }}
         data-ad-client={client}
         data-ad-slot={slot}

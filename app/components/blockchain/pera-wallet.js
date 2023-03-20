@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import Image from 'next/image'
 import { PeraWalletConnect } from "@perawallet/connect";
-import { Button } from '@chakra-ui/react'
 import styles from '../../styles/Links.module.css'
 
 export default function PeraWallet() {

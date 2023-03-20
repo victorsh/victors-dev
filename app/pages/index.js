@@ -1,42 +1,27 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Inter } from '@next/font/google'
-import { Button, useToast } from '@chakra-ui/react'
 import Landing from '@/components/three/scenes/Landing'
-
 import Header from '../components/layouts/Header'
 import Links from '../components/layouts/Links'
 import Footer from '@/components/layouts/Footer'
+import CookieBanner from '@/components/parts/cookie-banner'
 
 import startStyles from '../styles/Start.module.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
-  const toast = useToast()
+  const [showModal, setShowModal] = useState(true)
+  const openModal = () => {
+    setShowModal(true)
+  }
+  const closeModal = () => {
+    setShowModal(false)
+  }
+
   useEffect(() => {
     console.log(process.env.NODE_ENV)
-    showToast()
   }, [])
-
-  const acceptAdsense = () => {
-    console.log('run ads')
-  }
-
-  const showToast = () => {
-    console.log('showing toast')
-    toast({
-      title: 'Cookies',
-      description: 'This site stores cookies to display ads.',
-      status: 'success',
-      // duration: 9000,
-      isClosable: true,
-      // render: () => (
-      //   <Button onClick={acceptAdsense} colorScheme="green">
-      //     Ok
-      //   </Button>
-      // )
-    })
-  }
 
   return (
     <div className={startStyles.scene}>
@@ -44,6 +29,7 @@ export default function Home() {
       <Links />
       <Landing />
       <Footer />
+      <CookieBanner />
     </div>
   )
 }

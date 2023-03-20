@@ -5,4 +5,5 @@ export function enableGoogleAdsense () {
   scriptElement.async
   scriptElement.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5014071221395516'
   scriptElement.crossOrigin = 'anonymous'
+  head.appendChild(scriptElement)
 }

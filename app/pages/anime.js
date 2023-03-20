@@ -15,9 +15,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <div>
-        <Links />
-      </div>
+      <Links />
     </>
   )
 }

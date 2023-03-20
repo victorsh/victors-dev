@@ -1,0 +1,60 @@
+.cookie_banner_container {
+  width: 20%;
+  height: 100px;
+  z-index: 2;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  background: white;
+  margin-bottom: 4vh;
+  border-radius: 5px;
+}
+
+.cookie_banner_title {
+  color: #333;
+  width: 100%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  text-align: center;
+}
+
+.cookie_banner_description {
+  font-size: 1.25rem;
+  width: 100%;
+  text-align: center;
+  padding: 0.6rem 0.6rem 0.6rem 0.6rem;
+}
+
+.cookie_button_container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.cookie_button {
+  width: 60px;
+  height: 20px;
+  text-align: center;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 2px 2px black;
+}
+
+.cookie_button_accept {
+  background: rgb(116, 255, 116);
+  width: 60px;
+  height: 20px;
+  text-align: center;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 2px 2px black;
+}
+
+.cookie_button_decline {
+  background: rgb(255, 116, 116);
+  width: 60px;
+  height: 20px;
+  text-align: center;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 2px 2px black;
+}
