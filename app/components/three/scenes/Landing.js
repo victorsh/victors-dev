@@ -1,4 +1,6 @@
 import React from 'react'
+import { SET_ACTUAL_COLOR } from '@/store/reducers/name-color'
+import { useSelector, useDispatch } from 'react-redux'
 
 import { Canvas } from '@react-three/fiber'
 import { Stats } from '@react-three/drei'
@@ -14,6 +16,9 @@ import OrbitControls from '@/components/three/OrbitControls'
 import startStyles from '@/styles/Start.module.css'
 
 export default function Landing(props) {
+  const dispatch = useDispatch()
+  const { actualColor } = useSelector((state) => state.nameColor)
+
   const VortexBoxes = () => {
     const BoxSpirals = []
     const color_select = ['#f90000', '#0f9000', '#00f900', '#000f90', '#0000f9', '#90000f']
@@ -45,7 +50,7 @@ export default function Landing(props) {
         <ambientLight intensity={0.3} />
         <LightBulb />
         <VortexBoxes />
-        <Text3D position={[-3, 0, -10]} scale={[1, 1, 0.5]} color={props.nameColor} text="Victor's Dev"/>
+        <Text3D position={[-3, 0, -10]} scale={[1, 1, 0.5]} color={actualColor} text="Victor's Dev"/>
         
         <OrbitControls />
         <EffectComposer>

@@ -25,7 +25,7 @@ const NameColorSlider = () => {
   }
   return (
     <>
-      <Landing nameColor={appliedNameColor} />
+      
       <div style={{zIndex: 1, position: 'fixed', top: '20px', left: '45%', width: '100%'}}>
         <input id='name-color-slider' ref={nmn} type="range" min="1" max="100" value={nmn.current.value} onChange={handleNameColor} className="slider" />
       </div>
@@ -57,6 +57,7 @@ export default function Home() {
       <Header />
       <Links />
       {/* <NameColorSlider /> */}
+      <Landing />
       <Footer />
       {showModal ?
         <div style={{zIndex: '4', position: 'fixed', width: '10px', height: '10px', top: '400px', left: '20px', background: 'transparent'}}>
