@@ -7,7 +7,7 @@ import '../styles/globals.css'
 export default function App({ Component, pageProps }) {
   return (
     <>
-      <GoogleAdSense publisherId='pub-5014071221395516' />
+      {/* <GoogleAdSense publisherId='pub-5014071221395516' /> */}
       <Provider store={store}>
         <Component {...pageProps} />
       </Provider>

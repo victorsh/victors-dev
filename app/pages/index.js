@@ -59,7 +59,7 @@ export default function Home() {
       {/* <NameColorSlider /> */}
       <Landing />
       <Footer />
-      {showModal ?
+      {/* {showModal ?
         <div style={{zIndex: '4', position: 'fixed', width: '10px', height: '10px', top: '400px', left: '20px', background: 'transparent'}}>
           <ResponsiveAdUnit
             publisherId='pub-5014071221395516'
@@ -67,7 +67,7 @@ export default function Home() {
             type="adsense"
             style={{zIndex: '5', position: 'fixed'}}
           />
-        </div> : ''}
+        </div> : ''} */}
       <CookieBanner />
     </div>
   )
