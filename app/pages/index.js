@@ -1,12 +1,15 @@
-import React, { useEffect, useState, useMemo, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import randomHexColor from 'random-hex-color'
-import { Inter } from '@next/font/google'
+import { useSelector, useDispatch } from 'react-redux'
 import Cookies from 'js-cookie'
+import { Inter } from '@next/font/google'
 import Landing from '@/components/three/scenes/Landing'
 import Header from '../components/layouts/Header'
 import Links from '../components/layouts/Links'
 import Footer from '@/components/layouts/Footer'
 import CookieBanner from '@/components/parts/cookie-banner'
+
+import { SET_NAME_COLOR, SET_ACTUAL_COLOR } from '@/store/reducers/name-color'
 import { ResponsiveAdUnit } from "nextjs-google-adsense";
 
 import startStyles from '../styles/Start.module.css'
@@ -14,40 +17,23 @@ import startStyles from '../styles/Start.module.css'
 const inter = Inter({ subsets: ['latin'] })
 
 const NameColorSlider = () => {
-  const nmn = useRef(50)
-  const [nameColor, setNameColor] = useState(50)
-  const [appliedNameColor, setAppliedNameColor] = useState('#FFFFFF')
+  const dispatch = useDispatch()
+  const { sliderValue, actualColor } = useSelector(state => state.nameColor)
   const handleNameColor = async (e) => {
-    nmn.current.value = e.target.value
-    // document.getElementById('name-color-slider').setAttribute('value', nmn.current)
-    // await setNameColor(Number(val))
-    // setAppliedNameColor(randomHexColor())
+    dispatch(SET_NAME_COLOR(Number(e.target.value)))
+    dispatch(SET_ACTUAL_COLOR(randomHexColor()))
   }
   return (
-    <>
-      
-      <div style={{zIndex: 1, position: 'fixed', top: '20px', left: '45%', width: '100%'}}>
-        <input id='name-color-slider' ref={nmn} type="range" min="1" max="100" value={nmn.current.value} onChange={handleNameColor} className="slider" />
-      </div>
-    </>
-
+    <div style={{zIndex: 1, position: 'fixed', top: '20px', left: '45%', width: '100%'}}>
+      <input id='name-color-slider' type="range" min="1" max="100" value={sliderValue} onChange={handleNameColor} className="slider" />
+    </div>
   )
 }
 
 export default function Home() {
   const [showModal, setShowModal] = useState(true)
-  const [nameColor, setNameColor] = useState(50)
-  // const [appliedNameColor, setAppliedNameColor] = useState('#FFFFFF')
-  let appliedNameColor = '#ffffff'
-  const handleNameColor = (e) => {
-    const val = e.target.value
-    console.log(randomHexColor())
-    // setNameColor(Number(val))
-    appliedNameColor = randomHexColor()
-  }
 
   useEffect(() => {
-    console.log(process.env.NODE_ENV)
     const savedCookie = Cookies.get('accept-cookies')
     if (savedCookie === 'true') { setShowModal(true) }
   }, [])
@@ -56,7 +42,7 @@ export default function Home() {
     <div className={startStyles.scene}>
       <Header />
       <Links />
-      {/* <NameColorSlider /> */}
+      <NameColorSlider />
       <Landing />
       <Footer />
       {/* {showModal ?
