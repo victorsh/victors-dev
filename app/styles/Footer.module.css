@@ -26,6 +26,9 @@
 
 .hover_text_show {
   opacity: 1;
+  font-weight: bold;
+  font-size: 24px;
+  margin-top: 8px;
 }
 
 .hover_text_hide {

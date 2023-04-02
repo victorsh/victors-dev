@@ -12,13 +12,7 @@ export default function Footer() {
     config: { tension: 500, friction: 20 }
   })
 
-  const hoverIn = (e) => {
-    e.preventDefault()
-    e.stopPropagation()
-    setFooterExpandHidden(!footerExpandHidden)
-  }
-
-  const hoverOut = (e) => {
+  const footerToggle = (e) => {
     e.preventDefault()
     e.stopPropagation()
     setFooterExpandHidden(!footerExpandHidden)
@@ -43,10 +37,10 @@ export default function Footer() {
         alignItems: 'center',
         color: '#eee'
       }}
-      onMouseEnter={e => hoverIn(e)}
-      onMouseLeave={e => hoverOut(e)}
+      onMouseEnter={e => footerToggle(e)}
+      onMouseLeave={e => footerToggle(e)}
     >
-      {footerExpandHidden ? <p className={footerStyle.hover_text_show}>Hover Over Me</p> : ''}
+      {footerExpandHidden ? <p className={footerStyle.hover_text_show}>^</p> : ''}
       {!footerExpandHidden ?
         <div>
           <div className={footerStyle.sources_container}>
