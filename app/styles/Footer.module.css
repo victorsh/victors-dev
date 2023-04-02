@@ -5,13 +5,10 @@
   left: 0;
   bottom: 0;
   width: 100%;
-  height: 20px;
+  height: 24px;
   text-align: center;
   background-color: rgba(65, 192, 253, 0.3);
-}
-
-.footer:hover {
-  height: auto;
+  border-top: 2px solid #00c8ff;
 }
 
 .footer p:hover {
@@ -33,4 +30,8 @@
 
 .hover_text_hide {
   opacity: 0;
+}
+
+.img_to_white {
+  filter: invert(84%) sepia(43%) saturate(0%) hue-rotate(53deg) brightness(100%) contrast(102%);
 }

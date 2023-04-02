@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { getEvents, getEventTypes } from '@/lib/api/calendar'
+import { getEvents, getEventTypes } from '@/lib/api/manager/calendar'
 import styles from '@/styles/manager/Calendar.module.css'
 import { SET_CALENDAR_EVENTS } from '@/store/reducers/calendar-events';
 
