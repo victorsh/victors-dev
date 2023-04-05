@@ -25,6 +25,7 @@ const Landing = () => {
         color={color_select_natural[i % (color_select_natural.length - 1)]}
         radius={'4'}
         key={'BoxSpiral-'+i}
+        geom={i % 2 === 0 ? 'sphere' : 'box'}
       />)
     }
     return BoxSpirals

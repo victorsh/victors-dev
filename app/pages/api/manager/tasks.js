@@ -14,7 +14,7 @@ async function handler(req, res) {
     'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
   )
   await NextCors(req, res, {
-    methods: ['GET', 'POST'],
+    methods: ['GET', 'POST', 'UPDATE', 'DELETE'],
     origin: '*',
     optionsSuccessStatus: 200
   })
@@ -39,7 +39,7 @@ async function handler(req, res) {
         return
       }
 
-      res.status(200).json({ messages: data })
+      res.status(200).json({ tasks: data })
       return
     } catch (error) {
       res.status(500).json({ error: error })

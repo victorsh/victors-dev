@@ -5,7 +5,6 @@ import Calendar from '@/views/manager/calendar'
 import Tasks from '@/views/manager/tasks'
 import styles from '@/styles/manager/Manager.module.css'
 
-
 export default function Manager(props) {
   const [viewSelect, setViewSelect] = useState(0)
 
@@ -25,10 +24,10 @@ export default function Manager(props) {
           viewSelect === 1 ? styles.manager_selection_button_selected : styles.manager_selection_button_unselected} data-index={1} onClick={selectView}>Tasks</button>
       </div>
       {viewSelect === 0 ?
-        <Calendar />
+        <Calendar whois={props.user} />
       : ''}
       {viewSelect === 1 ?
-        <Tasks />
+        <Tasks whois={props.user} />
       : ''}
     </div>
   )

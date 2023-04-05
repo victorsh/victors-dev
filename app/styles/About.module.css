@@ -8,7 +8,9 @@
   justify-content: center;
   color: white;
   margin-bottom: 10vh;
+  margin-top: 50px;
   height: 100%;
+  overflow: hidden;
 }
 
 .text_container {

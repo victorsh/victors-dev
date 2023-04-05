@@ -1,6 +1,5 @@
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import randomHexColor from 'random-hex-color'
 import { SET_NAME_COLOR, SET_ACTUAL_COLOR } from '@/store/reducers/name-color'
 
 function hslToHex(h, s, l) {

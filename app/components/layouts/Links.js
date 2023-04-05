@@ -1,13 +1,9 @@
-import { useEffect } from 'react'
 import EthWallet from '../blockchain/eth-wallet'
 import PeraWallet from '../blockchain/pera-wallet'
 import Link from 'next/link'
 import styles from '../../styles/Links.module.css'
 
 function Links() {
-  useEffect(() => {
-  }, [])
-  
   return (
     <div className={styles.links_container}>
       <div className={styles.links_wrapper}>

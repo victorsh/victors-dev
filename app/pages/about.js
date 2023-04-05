@@ -38,9 +38,9 @@ export default function About(props) {
           </Canvas>
         </NonSSRWrapper>
       </div>
+      <div style={{width: '100%', height: '50px', background: 'transparent', zIndex: 1, position: 'fixed', top: 0, left: 0}}></div>
       <div className={aboutStyle.about_wrapper}>
-        <Box maxW="lg" m="0 auto" className={aboutStyle.buffer_box}>
-        </Box>
+        <div style={{width: '100%', height: '20px', background: 'trasparent' }}></div>
         <Box maxW="2xl" m="0 auto" className={aboutStyle.text_container}>
           <Heading as="h1" style={{'margin': '1rem'}}>About Me</Heading>
           <br/>
@@ -93,6 +93,14 @@ export default function About(props) {
               I also enrolled in Computer Graphics, Distributed Systems and Data visualization. Each course lead to a greater understand of computers\
               as a whole and each course solidified my choice in choosing to pursue Computer Science as a major. I loved the critical thinking around it\
               all. The feeling of an idea clicking in my head was, and still is, insurmountable to most experiences in my life.\
+            "}
+          </Text>
+          <br/>
+          <Text className={aboutStyle.text_box}>
+            {"After graduating from university, I started the hunt for a job that was both interesting and allowed me to grow in my career.\
+              I stumbled upon a startup that looked to be a lot of fun to work with. The company was called Adventure Corporation and involved\
+              prototyping various kinds of web based applications. We also prototyped Ethereum based projects, built ERC20 and ERC721 based\
+              tokens. It was all fun but I felt that I wanted a position within a well established compnany. So I began the job search yet again.\
             "}
           </Text>
         </Box>

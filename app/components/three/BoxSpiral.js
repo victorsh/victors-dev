@@ -3,8 +3,7 @@ import { useFrame } from '@react-three/fiber'
 
 function BoxSpiral(props) {
   const myMesh = React.useRef()
-  const [timeDelta, setTimeDelta] = useState(0)
-  let limitZReset = 1
+
   useFrame(({ clock }) => {
     myMesh.current.rotation.x = clock.getElapsedTime() / 2
     myMesh.current.rotation.y = clock.getElapsedTime() / 2
@@ -18,9 +17,18 @@ function BoxSpiral(props) {
   const handleClick = () => {
     myMesh.current.position.x += 1
   }
+
+  const geomType = () => {
+    switch(props.geom) {
+      case 'sphere':
+        return <sphereGeometry args={[0.75, 24, 24]}/>
+      case 'box':
+        return <boxGeometry />
+    }
+  }
   return (
     <mesh {...props} ref={myMesh} onClick={() => handleClick()}>
-      <boxGeometry />
+      {geomType()}
       <meshPhysicalMaterial emissive={props.color} emissiveIntensity={1} color={props.color} />
     </mesh>
   )

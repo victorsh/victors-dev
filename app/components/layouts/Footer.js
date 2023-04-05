@@ -7,8 +7,8 @@ import footerStyle from '@/styles/Footer.module.css'
 export default function Footer() {
   const [footerExpandHidden, setFooterExpandHidden] = useState(true)
   const { height } = useSpring({
-    from: { height: '24px' },
-    to: { height: footerExpandHidden ? '24px' : '80px' },
+    from: { height: '30px' },
+    to: { height: footerExpandHidden ? '30px' : '80px' },
     config: { tension: 500, friction: 20 }
   })
 

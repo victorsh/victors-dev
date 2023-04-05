@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from 'react'
-import randomHexColor from 'random-hex-color'
-import { useSelector, useDispatch } from 'react-redux'
 import Cookies from 'js-cookie'
 import { Inter } from '@next/font/google'
 
