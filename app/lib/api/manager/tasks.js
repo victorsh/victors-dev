@@ -9,7 +9,6 @@ const getTasks = async () => {
     console.error(err)
     return []
   }
-  return []
 }
 
 const postTask = async (data) => {
@@ -23,16 +22,18 @@ const postTask = async (data) => {
     console.error(err)
     return false
   }
-  return false
 }
 
-const updateTask = async () => {
+const updateTask = async (data) => {
   try {
     let task = await fetch('/api/manager/tasks', {
-      method: 'UPDATE'
+      method: 'UPDATE',
+      body: JSON.stringify({task: '', completed: false, completedAt: Date.now(), completedBy: 'vic', createdFor: 'vic'})
     })
+    return true
   } catch (err) {
     console.error(err)
+    return false
   }
 }
 
@@ -46,7 +47,6 @@ const deleteTask = async () => {
     console.error(err)
     return false
   }
-  return false
 }
 
 export {

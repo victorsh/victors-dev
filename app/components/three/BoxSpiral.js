@@ -3,6 +3,8 @@ import { useFrame } from '@react-three/fiber'
 
 function BoxSpiral(props) {
   const myMesh = React.useRef()
+  const [hovered, setHover] = useState(false)
+  const [active, setActive] = useState(false)
 
   useFrame(({ clock }) => {
     myMesh.current.rotation.x = clock.getElapsedTime() / 2
@@ -27,9 +29,15 @@ function BoxSpiral(props) {
     }
   }
   return (
-    <mesh {...props} ref={myMesh} onClick={() => handleClick()}>
+    <mesh
+      {...props}
+      ref={myMesh}
+      onClick={() => handleClick()}
+      onPointerOver={(event) => setHover(true)}
+      onPointerOut={(event) => setHover(false)}
+    >
       {geomType()}
-      <meshPhysicalMaterial emissive={props.color} emissiveIntensity={1} color={props.color} />
+      <meshPhysicalMaterial emissive={props.color} emissiveIntensity={1} color={hovered ? 'hotpink' : props.color} />
     </mesh>
   )
 }

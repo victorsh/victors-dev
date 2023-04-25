@@ -100,7 +100,12 @@ export default function About(props) {
             {"After graduating from university, I started the hunt for a job that was both interesting and allowed me to grow in my career.\
               I stumbled upon a startup that looked to be a lot of fun to work with. The company was called Adventure Corporation and involved\
               prototyping various kinds of web based applications. We also prototyped Ethereum based projects, built ERC20 and ERC721 based\
-              tokens. It was all fun but I felt that I wanted a position within a well established compnany. So I began the job search yet again.\
+              tokens. It was all fun but I felt that I wanted a position within a well established company. So I began the job search yet again.\
+            "}
+          </Text>
+          <br />
+          <Text className={aboutStyle.text_box}>
+            {"To be continued...\
             "}
           </Text>
         </Box>

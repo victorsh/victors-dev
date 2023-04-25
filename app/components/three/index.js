@@ -17,7 +17,7 @@ import LightBulb from './LightBulb'
 import Stars from './Stars'
 
 // Interactables
-import Draggable from './Draggable'
+import Draggable from './scenes/helpers/Draggable'
 import OrbitControls from './OrbitControls'
 
 export {
