@@ -11,6 +11,7 @@ import Text3D from '@/components/three/Text3D'
 import OrbitControls from '@/components/three/OrbitControls'
 import startStyles from '@/styles/Start.module.css'
 import VortexBoxes from '../VortexBoxes'
+import Duck from '../Duck'
 
 const BasicScene = () => {
   return (
@@ -28,7 +29,7 @@ const BasicScene = () => {
         <LightBulb />
         <VortexBoxes />
         <Text3D position={[-3, 0, -10]} scale={[1, 1, 0.5]} text="Victor's Dev"/>
-        
+        <Duck position={[0, 0, -20]}/>
         <OrbitControls />
         <EffectComposer>
           {/* <DepthOfField focusDistance={1} focalLength={1} bokehScale={2} height={1024} /> */}

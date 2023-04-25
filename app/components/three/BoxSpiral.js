@@ -21,6 +21,7 @@ function BoxSpiral(props) {
   }
 
   const geomType = () => {
+    return <cylinderGeometry args={[0.25, 0.25, 3]} />
     switch(props.geom) {
       case 'sphere':
         return <sphereGeometry args={[0.75, 24, 24]}/>
