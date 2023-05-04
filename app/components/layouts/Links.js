@@ -9,6 +9,7 @@ function Links() {
       <div className={styles.links_wrapper}>
         <Link className={styles.link} href='/'>Home</Link>
         <Link className={styles.link} href='/about'>About</Link>
+        <Link href='https://t4-vert.vercel.app/' className={styles.link}>T4 App</Link>
       </div>
       <div className={styles.wallets}>
         <EthWallet />
