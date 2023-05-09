@@ -32,16 +32,31 @@ async function handler(req, res) {
       let resp
       if (typeof id === 'undefined') {
         resp = await supabase
-          .from("CalendarEvent")
+          .from("CalendarDate")
           .select("*")
-          .order('created_at', { ascending: true })
+          .order('day', { ascending: true })
       } else {
         resp = await supabase
-          .from("CalendarEvent")
+          .from("CalendarDate")
           .select("*")
           .match({ id: id })
       }
 
+      let respEvents
+      if (resp.data.length > 0) {
+        for await (let i of resp.data) {
+          console.log(i)
+          let respEvents = await supabase
+            .from("CalendarEvent")
+            .select("*")
+            .match({ calendarDateId: i['id'] })
+
+          console.log(respEvents)
+        }
+      }
+
+      let respEventsData = respEvents.data
+      console.log(respEventsData)
       const { data, error } = resp
 
       if (error) {
@@ -50,7 +65,7 @@ async function handler(req, res) {
         return
       }
 
-      res.status(200).json({ events: data })
+      res.status(200).json({ data })
       return
     } catch (error) {
       res.status(500).json({ error: error })
@@ -69,7 +84,8 @@ async function handler(req, res) {
         priority,
         created_by,
         created_for,
-        password
+        password,
+        calendar_date_id
       } = req_data
 
       const { data, error } = await supabase
@@ -82,7 +98,8 @@ async function handler(req, res) {
           priority: priority,
           createdBy: created_by,
           createdFor: created_for,
-          password: password
+          password: password,
+          calendarDateId: calendar_date_id
         }]).single()
       if (error) {
         console.error(error)
