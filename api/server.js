@@ -43,6 +43,10 @@ app.get('/', async (req, res) => {
   res.send('hello!')
 })
 
+app.get('/hello', async (req, res) => {
+  res.send('hello world!')
+})
+
 app.listen(port, host, async () => {
   console.log(`Running on http://${host}:${port}`)
 })
