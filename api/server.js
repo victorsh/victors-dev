@@ -35,7 +35,6 @@ const algo_client = require('./algo/index')
   console.log(await exchange.fetchBalance())
 })()
 
-
 /**
  * API
  */
